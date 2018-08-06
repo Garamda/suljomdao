@@ -1,10 +1,10 @@
 # Simple ERC721 game - SULJONDAO
 
-![SULJOMDAO](https://github.com/CodeMath/suljomdao/readme/intro.gif?raw=true)
+![SULJOMDAO](https://github.com/CodeMath/suljomdao/blob/master/readme/intro.gif?raw=true)
 
 This project is based ethereum game. (Solidity refer is CryptoKitty gmae.)
 
-![SULJOMDAO](https://github.com/CodeMath/suljomdao/readme/market.gif?raw=true)
+![SULJOMDAO](https://github.com/CodeMath/suljomdao/blob/master/readme/market.gif?raw=true)
 
 ERC721 style game. Buy and make a Cocktail manufacturing.
 
@@ -15,7 +15,7 @@ ERC721 style game. Buy and make a Cocktail manufacturing.
 - DO NOT RUN MAINNET! (Only Ropsten testnet)
 
 
-![SULJOMDAO](https://github.com/CodeMath/suljomdao/readme/make.gif?raw=true)
+![SULJOMDAO](https://github.com/CodeMath/suljomdao/blob/master/readme/make.gif?raw=true)
 
 
 # Requirement.
