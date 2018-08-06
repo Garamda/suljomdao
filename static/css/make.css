@@ -1,0 +1,1164 @@
+@font-face {
+  font-family: KlavikaBold;
+  src:url(KlavikaBoldBold1_1.otf);
+}
+@font-face {
+  font-family: Klavika-OSF;
+  src:url(KlavikaRegular-OSF_1.otf);
+}
+@font-face {
+  font-family: Supply;
+  src:url(Supply-Regular.otf);
+}
+@font-face {
+  font-family: SpoqaHanSans;
+  src:url(SpoqaHanSansRegular.ttf);
+}
+
+#container{
+  width: 1440px;
+}
+#section {
+  width: 1440px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0);
+  border:1px solid gray;
+  margin-right: 0px;
+}
+#leftbox {
+  float: left;
+  width: 120px;
+  height: 900px;
+  background-color: rgba(255, 255, 255, 0);
+}
+#card{
+  float: left;
+  width: 200px;
+  height: 270px;
+  object-fit: contain;
+  margin-right: 48px;
+}
+#menublock{
+  display: flex;
+  flex-basis: 18px;
+  margin-top: 16px;
+  margin-bottom: 47px;
+}
+.LOGO {
+width: 125px;
+height: 26px;
+font-family: KlavikaBold;
+font-size: 24px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+margin-top: 16px;
+margin-left: 120px;
+float: left;
+color: #000000;
+}
+.MARKET {
+width: 169px;
+height: 65px;
+font-family: KlavikaBold;
+font-size: 45px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: 1;
+letter-spacing: normal;
+text-align: left;
+margin-top: 62px;
+display: flex;
+flex-basis: 45px;
+color: #000000;
+}
+.menu_MARKET {
+width: 60px;
+height: 18px;
+font-family: KlavikaBold;
+font-size: 16px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: center;
+float:left;
+margin-left: 881px;
+margin-top: 20px;
+color: #4b4b4b;
+}
+.menu_MY {
+width: 22px;
+height: 18px;
+font-family: KlavikaBold;
+font-size: 16px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: center;
+float:left;
+margin-left: 40px;
+margin-top: 20px;
+color: #4b4b4b;
+}
+.Rectangle-8-Copy {
+width: 72px;
+height: 27px;
+float:left;
+margin-left: 40px;
+margin-top: 16px;
+background-color: #b300e9;
+}
+.MAKE {
+width: 42px;
+height: 18px;
+font-family: KlavikaBold;
+font-size: 16px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: 1.13;
+letter-spacing: normal;
+text-align: center;
+display: block;
+margin-left: 15px;
+margin-top: 5px;
+color: #ffffff;
+}
+.ALL {
+width: 33px;
+height: 20px;
+font-family: KlavikaBold;
+font-size: 18px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: 1;
+letter-spacing: normal;
+text-align: left;
+float:left;
+margin-top: 12px;
+color: #000000;
+}
+.Alcohol {
+width: 58px;
+height: 20px;
+font-family: Klavika-OSF;
+font-size: 18px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: 1;
+letter-spacing: normal;
+text-align: left;
+color: #9e9e9e;
+float: left;
+margin-left: 40px;
+margin-top: 12px;
+}
+.Drink {
+width: 41px;
+height: 20px;
+font-family: Klavika-OSF;
+font-size: 18px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: 1;
+letter-spacing: normal;
+text-align: left;
+color: #9e9e9e;
+float: left;
+margin-left: 40px;
+margin-top: 12px;
+}
+.Ice-Cream {
+width: 74px;
+height: 20px;
+font-family: Klavika-OSF;
+font-size: 18px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: 1;
+letter-spacing: normal;
+text-align: left;
+color: #9e9e9e;
+float: left;
+margin-left: 40px;
+margin-top: 12px;
+}
+.Something {
+width: 83px;
+height: 20px;
+font-family: Klavika-OSF;
+font-size: 18px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: 1;
+letter-spacing: normal;
+text-align: left;
+color: #9e9e9e;
+float: left;
+margin-left: 40px;
+margin-top: 12px;
+}
+.Fill-176 {
+width: 3.5px;
+height: 3.5px;
+background-color: #6e0e10;
+}
+.Cocacola {
+width: 66px;
+height: 20px;
+font-family: KlavikaBold;
+font-size: 18px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #333333;
+color: var(--black);
+margin-left: 23px;
+margin-top: 6px;
+margin-bottom: 7px;
+}
+.description {
+width: 152px;
+height: 28px;
+font-family: SpoqaHanSans;
+font-size: 11px;
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: 1.27;
+letter-spacing: normal;
+text-align: left;
+color: #333333;
+margin-left: 23px;
+margin-top: 17px;
+margin-top: 8px;
+margin-bottom: 10px;
+}
+.card_drawing{
+  width: 110px;
+  height: 110px;
+  display:flex;
+  justify-content:center;
+  margin-left: 45px;
+}
+.card_drawing_make{
+  width: 110px;
+  height: 110px;
+  display:flex;
+  justify-content:center;
+  margin-left: 45px;
+  margin-top: 20px;
+}
+.ETH-000008282 {
+width: 97px;
+height: 16px;
+font-family: KlavikaBold;
+font-size: 14px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #333333;
+margin-left: 23px;
+margin-top: 8px;
+}
+.Line-Copy-10 {
+width: 162px;
+height: 1px;
+border: solid 1px #c8c8c8;
+}
+.Market_Resize {
+width: 1440px;
+height: 813px;
+background-color: #ffffff;
+}
+.section {
+width: 240px;
+height: 751px;
+background-color: rgba(255, 255, 255, 0);
+float: right;
+display: flex;
+border: solid gray 1px;
+border-top: 0px;
+}
+.section_make {
+width: 272px;
+height: 751px;
+background-color: rgba(255, 255, 255, 0);
+float: right;
+display: flex;
+flex-direction: column;
+border: solid gray 1px;
+border-top: 0px;
+}
+.top_cart {
+width: 128px;
+height: 110px;
+object-fit: contain;
+margin-left: 46px;
+margin-top: 32px;
+}
+.Lv1 {
+width: 25px;
+height: 16px;
+font-family: Supply;
+font-size: 13px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: -1.9px;
+text-align: left
+color: #b300e9;
+margin-left: 156px;
+margin-top: 19px;
+}
+.middle{
+display: flex;
+height: 1900px;
+width: 1320px;
+}
+.middle_market{
+display: flex;
+height: 1900px;
+width: 1440px;
+}
+.middle_make{
+display: flex;
+height: 1900px;
+width: 1440px;
+}
+.center{
+display: flex;
+flex-direction: column;
+width: 1320px;
+}
+.center_make{
+display: flex;
+flex-direction: column;
+width: 1048px;
+margin-top: 68px;
+}
+#cardAlignment{
+display: flex;
+margin-top: 51px;
+}
+.Market_img_cat {
+width: 106px;
+height: 96px;
+object-fit: contain;
+margin-top: 46px;
+margin-left: 64px;
+margin-right: 68px;
+}
+.Market_box_default {
+  background-image: url('img/market-box-default@3x.png');
+  background-size: cover;
+}
+.minicard{
+width: 120px;
+height: 150px;
+display: block;
+margin-left: 60px;
+margin-bottom: 16px;
+z-index: 1;
+background-image: url('img/market-cartbox.png');
+background-size: cover;
+}
+.empty{
+height: 48px;
+}
+.Scroll {
+width: 8px;
+height: 140px;
+opacity: 0.3;
+border-radius: 5px;
+background-color: #d8d8d8;
+margin-left: 73px;
+display: flex;
+}
+.Rectangle-6 {
+width: 240px;
+height: 110px;
+background-color: #ffffff;
+z-index: 2;
+display: flex;
+flex-direction: column;
+position: absolute;
+bottom: -164px;
+}
+#scrollpart{
+flex-basis: 70px;
+height: 560px;
+}
+.Scroll-Copy {
+width: 8px;
+height: 390px;
+opacity: 0.3;
+border-radius: 5px;
+background-color: #d8d8d8;
+margin-top: 190px;
+}
+.section1{
+width: 225px;
+display: flex;
+flex-direction: column;
+}
+.Rectangle-2 {
+width: 224px;
+height: 1px;
+background-color: #d8d8d8;
+margin-left: 8px;
+}
+.ETH-000012394 {
+width: 125px;
+height: 20px;
+font-family: KlavikaBold;
+font-size: 18px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #000000;
+margin-left: 58px;
+margin-top: 22px;
+}
+.Rectangle-8 {
+width: 64px;
+height: 27px;
+background-color: #000000;
+margin-left: 88px;
+margin-bottom: 25px;
+}
+.BUY {
+width: 29px;
+height: 18px;
+margin-top: 16px;
+font-family: KlavikaBold;
+font-size: 16px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: 1.13;
+letter-spacing: normal;
+text-align: center;
+color: #ffffff;
+margin-left: 17px;
+margin-top: 5px;
+}
+.MY-DRINK {
+  width: 198px;
+  height: 45px;
+  font-family: KlavikaBold;
+  font-size: 45px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  margin-top: 60px;
+  color: #000000;
+  display: block;
+}
+.layer {
+  width: 69px;
+  height: 18px;
+  font-family: SpoqaHanSans;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b300e9;
+  color: var(--vibrant-purple);
+}
+.Lv3 {
+  width: 37px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b300e9;
+  color: var(--vibrant-purple);
+  margin-right: 6px;
+}
+.-Drinks {
+  width: 72px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  margin-left: 40px;
+  color: var(--black);
+}
+.ETH-00012345678 {
+  width: 144px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+  margin-left: 40px;
+}
+.Lv3 {
+  width: 37px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b300e9;
+  color: var(--vibrant-purple);
+}
+.-Drinks {
+  width: 72px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+}
+.MY_box_default {
+  width: 240px;
+  height: 480px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 32px;
+  padding: 0px;
+  margin-right: 40px;
+  background-image: url('img/my-box-default.png');
+  background-size: cover;
+}
+.Swings-Ddam-Liquor {
+  width: 150px;
+  height: 16px;
+  font-family: KlavikaBold;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+  color: var(--black);
+  margin-left: 39px;
+  margin-top: 20px;
+}
+.-SULJOMDAO- {
+  width: 85px;
+  height: 14px;
+  font-family: KlavikaBold;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+  color: var(--black);
+  margin-left: 78px;
+  margin-top: 4px;
+}
+.Rectangle-3 {
+  width: 208px;
+  height: 160px;
+  background-color: #f9ea7e;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+.Rectangle {
+  width: 56px;
+  height: 56px;
+  background-color: #ffffff;
+  border: solid 1px #d7ade3;
+}
+.cardSection{
+  display: flex;
+  flex-direction: column;
+  width: 1320px;
+  height: 1500px;
+}
+.cardrow{
+  display: flex;
+}
+.column{
+  padding: 0px;
+}
+.row{
+  padding: 0px;
+}
+.grid
+{
+  margin: 0px;
+}
+.Making_img_cat {
+  width: 563px;
+  height: 369px;
+  object-fit: contain;
+  margin-left: 223px;
+  margin-top: 40px;
+}
+.Making_img_Cup {
+  width: 258px;
+  height: 263px;
+  object-fit: contain;
+  margin-left: 80px;
+  margin-top: 146px;
+}
+.Making_img_talkbox {
+  width: 464px;
+  height: 207px;
+  object-fit: contain;
+  margin-left: 101px;
+  margin-top: 128px;
+}
+.MAKING {
+  width: 154px;
+  height: 39px;
+  font-family: Supply;
+  font-size: 32px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+  margin-left: 407px;
+  margin-top: 257px;
+}
+.Rectangle-2-Copy {
+  width: 12px;
+  height: 24px;
+  background-color: #d8b5e2;
+  margin-left: 6px;
+  margin-top: 265px;
+}
+.Rectangle-2-Copy2 {
+  width: 12px;
+  height: 24px;
+  background-color: #c16eda;
+  margin-left: 8px;
+  margin-top: 265px;
+}
+.Rectangle-2-Copy-2 {
+  width: 12px;
+  height: 24px;
+  background-color: #b300e9;
+  background-color: var(--vibrant-purple);
+  margin-left: 8px;
+  margin-top: 265px;
+}
+.sicktam {
+  width: 245px;
+  height: 36px;
+  font-family: SpoqaHanSans;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: right;
+  color: #333333;
+  color: var(--black);
+  margin-left: 128px;
+  margin-top: 48px;
+}
+.table {
+  width: 1252px;
+  height: 8px;
+  background-color: #4b4b4b;
+  background-color: var(--greyish-brown);
+}
+.makingLayout{
+  display: flex;
+  flex-basis: 813px;
+  flex-direction: column;
+}
+.row1{
+  display: flex;
+}
+.row2{
+  display: flex;
+}
+.row3{
+
+}
+.composition{
+  display: flex;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: 56px;
+}
+.Rectangle-4 {
+  width: 1px;
+  height: 56px;
+  background-color: #d8d8d8;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.Line-Copy-9 {
+  width: 208px;
+  height: 1px;
+  border: solid 1px #c8c8c8;
+  border: solid 1px var(--pinkish-grey);
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-bottom: 12px;
+}
+.Line-Copy-99 {
+  width: 208px;
+  height: 1px;
+  border: solid 1px #c8c8c8;
+  border: solid 1px var(--pinkish-grey);
+  margin-top: 12px;
+  margin-left: 16px;
+  margin-bottom: 12px;
+}
+.textbox{
+  width: 176px;
+  height: 50px;
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.explanation{
+  width: 186px;
+  height: 48px;
+  font-family: SpoqaHanSans;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+  color: var(--black);
+  margin-left: 27px;
+}
+.Alcohol-Lab {
+  width: 234px;
+  height: 45px;
+  font-family: KlavikaBold;
+  font-size: 45px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+.-Material {
+  width: 87px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+  margin-left: 40px;
+}
+.Lv1_my {
+  width: 37px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b300e9;
+  color: var(--vibrant-purple);
+  margin-left: 0px;
+  margin-right: 6px;
+}
+.Lv1_card {
+  width: 25px;
+  height: 16px;
+  font-family: Supply;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -1.9px;
+  text-align: left;
+  color: #b300e9;
+  color: var(--vibrant-purple);
+  margin-left: 156px;
+  margin-top: 16px;
+}
+.layer_make {
+  width: 69px;
+  height: 18px;
+  font-family: SpoqaHanSans;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b300e9;
+  color: var(--vibrant-purple);
+}
+.Market_img_cola {
+  image-orientation: center;
+  width: 43px;
+  object-fit: contain;
+}
+.Line-Copy-100 {
+  width: 162px;
+  height: 1px;
+  margin-left: 19px;
+  border: solid 1px #c8c8c8;
+  border: solid 1px var(--pinkish-grey);
+}
+.text11{
+  width: 100%;
+  font-family: SpoqaHanSans;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+}
+.text22{
+  width: 100%;
+  font-family: KlavikaBold;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: right;
+  color: #333333;
+  color: var(--black);
+}
+.textalign{
+  display: flex;
+  margin-bottom: 4px;
+}
+.mixingcup{
+  width: 257px;
+  height: 404px;
+}
+.making_img_cup {
+  width: 257px;
+  height: 263px;
+  object-fit: contain;
+  z-index: 2;
+  position: absolute;
+  top: 100px;
+}
+.making_img_solid {
+  width: 125px;
+  height: 84px;
+  object-fit: contain;
+  z-index: 4;
+  position: absolute;
+  top: 100px;
+}
+.making_img_liquid {
+  width: 233px;
+  height: 209px;
+  object-fit: contain;
+  z-index: 3;
+  position: absolute;
+  top: 100px;
+}
+.making_img_icecrm {
+  width: 137px;
+  height: 178px;
+  object-fit: contain;
+  z-index: 1;
+  position: absolute;
+  top: 100px;
+}
+.Make_box_materialList {
+  width: 240px;
+  height: 100px;
+  object-fit: contain;
+  background-image: url('img/make-box-material-list.png');
+  margin-left: 16px;
+  margin-bottom: 16px;
+  display: flex;
+}
+.Material-box {
+  width: 115px;
+  height: 25px;
+  font-family: Klavika-OSF;
+  font-size: 22px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #848484;
+  color: var(--warm-grey);
+  margin-left: 86px;
+  margin-top: 108px;
+}
+.Alcohol-Drink-Ic {
+  width: 243px;
+  height: 15px;
+  font-family: Klavika-OSF;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.07;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4b4b4b;
+  color: var(--greyish-brown);
+  margin-top: 25px;
+  margin-left: 14px;
+  margin-bottom: 32px;
+}
+.Make_box_filled {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  background-image: url('img/make-box-filled.png');
+}
+.Make_box_empty {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  background-image: url('img/make-box-empty.png');
+  margin-left: 8px;
+}
+.Cocacola_make {
+  width: 73px;
+  height: 22px;
+  font-family: KlavikaBold;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+  margin-top: 10px;
+  margin-left: 63px;
+}
+.Lv1_make {
+  width: 28px;
+  height: 16px;
+  font-family: Supply;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -1.7px;
+  text-align: left;
+  color: #848484;
+  color: var(--warm-grey);
+  margin-left: 87px;
+}
+.Drag-drop {
+  width: 99px;
+  height: 22px;
+  font-family: Klavika-OSF;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #848484;
+  color: var(--warm-grey);
+  margin-left: 51px;
+  margin-top: 88px;
+}
+.request{
+  width: 489px;
+  height: 32px;
+  margin-top: 72px;
+  margin-left: 270px;
+}
+.request_text {
+  width: 462px;
+  height: 32px;
+  font-family: SpoqaHanSans;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.07;
+  letter-spacing: normal;
+  text-align: center;
+  color: #9d9d9d;
+}
+.Rectangle-8_make{
+  width: 103px;
+  height: 41px;
+  background-color: #000000;
+  margin-left: 449px;
+  margin-top: 56px;
+}
+.MAKE_make {
+  width: 65.6px;
+  height: 18px;
+  font-family: KlavikaBold;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.9;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin: auto;
+  margin-top: 11px;
+}
+.Rectangle_make{
+  width: 80px;
+  height: 80px;
+
+  margin-left: 11px;
+  margin-right: 16px;
+  margin-top: 11px;
+}
+.Cocacola_make_list {
+  width: 52px;
+  height: 14px;
+  font-family: KlavikaBold;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-left: 0px;
+  margin-top: 24px;
+}
+.Cocacola {
+  width: 73px;
+  height: 22px;
+  font-family: KlavikaBold;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+}
+.Lv1_makelist {
+  width: 23px;
+  height: 15px;
+  font-family: Supply;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -1.7px;
+  text-align: left;
+  color: #848484;
+  color: var(--warm-grey);
+  margin-left: 8px;
+  margin-top: 22px;
+}
+.make_explanation {
+  width: 84px;
+  height: 28px;
+  font-family: SpoqaHanSans;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  color: var(--black);
+  margin-top: 8px;
+}
+.Box_right{
+
+}
+.Box_right_order{
+  display: flex;
+}

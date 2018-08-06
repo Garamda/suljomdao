@@ -1,0 +1,552 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SULJOMDAONG | MARKET</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'thirdparty/semantic/semantic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .resize_card{
+            height:auto;cursor:pointer;
+        }
+        .filterbtm{
+            cursor:pointer;
+        }
+        .mshover{
+            opacity:1;
+        }
+        .mshover:hover{
+            opacity:.9;
+        }
+        .itemsC{
+            margin-bottom: 50px;
+            display: block;
+        }
+        .Lv1_card{
+            width: auto;
+            height: 16px;
+            font-family: Supply;
+            font-size: 13px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: -1.9px;
+            text-align: right;
+            color: #b300e9;
+            margin-right: 25px;
+            margin-top: 16px;
+        }
+        .Cocacola{
+            margin-left: 0px;
+            text-align: center;
+        }
+        .Line-Copy-100{
+            width: 85%;
+            margin: 0 auto;
+        }
+        .ETH-price{
+
+            width: auto;
+            margin-left: 0px;
+            text-align: center;
+            font-family: SpoqaHanSans;
+            font-weight: bold;
+        }
+
+
+        @-webkit-keyframes swinging15{
+            0%{-webkit-transform: rotate(15deg);}
+            50%{-webkit-transform: rotate(-15deg)}
+            100%{-webkit-transform: rotate(15deg);}
+        }
+        @keyframes swinging15{
+            0%{transform: rotate(15deg);}
+            50%{transform: rotate(-15deg)}
+            100%{transform: rotate(15deg);}
+        }
+
+
+        .hovereffect{
+            transition: all .2s ease-in-out;
+        }
+        .resize_card:hover > .card_drawing img{
+            transform: scale(1.1);
+            -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+            -webkit-animation: swinging15 .2s ease-in-out;
+            animation: swinging15 .2s ease-in-out;
+        }
+        .minicard{
+            width: 135px;
+            height: 170px;
+            margin-left: 45px;
+            margin-bottom: 21px;
+        }
+        .actives{
+            color:#000000;
+            font-weight: bold;
+            font-family: KlavikaBold;
+        }
+        .none{
+            display: none;
+        }
+        .on{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="ui grid" style="margin-left: 0px;margin-right: 0px;">
+
+        <div id="section" style="position: fixed;background-color: white;padding:0px;top: 0px;margin-top: 0px;z-index: 1;">
+
+            <div class="LOGO">
+                <a href="#">
+                    SULJOMDAO
+                </a>
+            </div>
+            <div class="menu-right">
+                <div class="menu_MARKET">
+                    <a href="{% url 'market_place' %}">MARKET</a>
+                </div>
+                <div class="menu_MY"><a href="{% url 'mypage' %}">MY</a></div>
+                <div class="Rectangle-8-Copy">
+                    <div class="MAKE"><a href="{% url 'make' %}">MAKE</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class = "middle_market" style="width: 85%;margin-top: 61px;padding-left: 0rem;">
+            <div id="leftbox" style="margin-left: 120px;"></div>
+
+            <div class = "center" style="width: 100%;">
+                <div class="MARKET">MARKET</div>
+                <div id="menublock">
+                    <div class="ALL filterbtm actives " onclick="filterOf('all')" data-value="all">
+                        ALL
+                        <span id="underbar1" class="on " style="width: 33px; height: 3px; background-color: #000000;position: relative; top:4px;"></span>
+                    </div>
+                    <div class="Alcohol filterbtm  " onclick="filterOf('alcohol')" data-value="alcohol">
+                        Alcohol
+                        <span id="underbar2" class="none " style="width: 58px; height: 3px; background-color: #000000;position: relative; top:4px;"></span>
+                    </div>
+                    <div class="Drink filterbtm " onclick="filterOf('drink')" data-value="drink">
+                        Drink
+                        <span id="underbar3" class="none " style="width: 41px; height: 3px; background-color: #000000;position: relative; top:4px;"></span>
+                    </div>
+                    <div class="Ice-Cream filterbtm  " onclick="filterOf('icecream')" data-value="icecream">
+                        Ice Cream
+                        <span id="underbar4" class="none " style="width: 74px; height: 3px; background-color: #000000;position: relative; top:4px;"></span>
+                    </div>
+                    <div class="Something filterbtm " onclick="filterOf('something')" data-value="something">
+                        Something
+                        <span id="underbar5" class="none " style="width: 85px; height: 3px; background-color: #000000;position: relative; top:4px;"></span>
+                    </div>
+
+                </div>
+
+                <div id="cardAlignment" class="ui four column grid" style="margin-left: -1px;">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="section" style="position: fixed;right:1px;top:61px;padding: 0px;min-height: 350px;background-color: white;margin-top:1px;border-left-color: #d8d8d8;height: 100%;">
+            <div class="section1">
+                <div class="Market_img_cat">
+                    <img src="{% static 'img/market-img-cat.png' %}" >
+                </div>
+
+                <div style="position: relative;top:190px;margin-bottom: 240px;min-height: 300px;max-height: 630px; overflow-y: auto;" id="purchased">
+
+                </div>
+
+            </div>
+            <div class="Rectangle-6 allCount">
+                <div class="Rectangle-2"></div>
+                <div class="ETH-000012394" id="sumofeth" style="width: auto;text-align: center;margin-left: 18px;margin-right: 18px;margin-top: 22px;margin-bottom: 8px;">0.0000 eth</div>
+                <input type="hidden" name="bid_eth" value="" id="bid_eth">
+                <div class="Rectangle-8" onclick="bidsul(self)" data-set="" style="cursor: pointer;">
+                    <div class="BUY">
+                        <div class="BUYtext">BUY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script type="application/javascript">
+    web3.version.getNetwork((err, netId) => {
+        switch (netId) {
+            case "3":
+                // console.log('This is the ropsten test network.');
+                break;
+
+            default:
+                // console.log('This is an unknown network.');
+                alert("Change the ropsten test network.");
+        }
+    });
+
+    var origin = '';
+
+    window.addEventListener('load', function() {
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            var myWeb3 = new Web3(window.web3.currentProvider);
+            myWeb3.eth.defaultAccount = window.web3.eth.defaultAccount;
+            var add = myWeb3.eth.defaultAccount;
+
+            origin = add;
+
+            myWeb3.eth.getAccounts((error, accounts) => {
+                // console.log(accounts[0])
+            })
+        } else {
+            alert('MetaMask가 없는 브라우저에서는 보기만 가능합니다.');
+
+        }
+
+    });
+    // check validate
+
+    setInterval(function() {
+
+        var myWeb3 = new Web3(window.web3.currentProvider);
+        myWeb3.eth.defaultAccount = window.web3.eth.defaultAccount;
+
+        var check = '';
+
+        myWeb3.eth.getAccounts(
+            (error, accounts) => {
+
+                check = accounts[0];
+
+                if(check !== origin){
+                    alert("Wallet 주소가 변경되었습니다. 다시 로그인 해주세요.");
+                    window.location.href='/'
+                }
+            }
+        );
+
+    },2000);
+
+    var myWeb3 = new Web3(window.web3.currentProvider);
+    //0x0ca1c6a88411449207f3521461cc1eebdd729392
+    var contractAddress = "0xc0ed549f50e841ba1929b17c1f0232dae69c949c";
+    var ceoAddress = "0xAB3e2F45701474fE7B7506C6A4E64Db491AF7437";
+    //0xAB3e2F45701474fE7B7506C6A4E64Db491AF7437
+    var abi = [{"constant":false,"inputs":[{"name":"_tokenIdSet","type":"uint256[]"}],"name":"_BidSul","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sulName","type":"string"},{"name":"_price","type":"uint256"},{"name":"_IMGindex","type":"uint256"},{"name":"_gens","type":"uint256"}],"name":"CEOmakeSul","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"sulName","type":"string"},{"indexed":false,"name":"sulId","type":"uint256"},{"indexed":false,"name":"price","type":"uint256"},{"indexed":false,"name":"IMGindex","type":"uint256"},{"indexed":false,"name":"gens","type":"uint256"},{"indexed":false,"name":"sale","type":"bool"}],"name":"Make","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"newContract","type":"address"}],"name":"ContractUpgrade","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"approved","type":"address"},{"indexed":false,"name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"from","type":"address"},{"indexed":false,"name":"to","type":"address"},{"indexed":false,"name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"price","type":"uint256"}],"name":"SumOfPriceEvent","type":"event"},{"constant":false,"inputs":[],"name":"pause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newCEO","type":"address"}],"name":"setCEO","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newCOO","type":"address"}],"name":"setCOO","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_contractAddress","type":"address"}],"name":"setMetadataAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"unpause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"count","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ceoAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"cooAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"erc721Metadata","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint256"}],"name":"getSul","outputs":[{"name":"barcode","type":"uint256"},{"name":"sulName","type":"string"},{"name":"generateTime","type":"uint256"},{"name":"price","type":"uint256"},{"name":"IMGindex","type":"uint256"},{"name":"gens","type":"uint256"},{"name":"sale","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"name":"owner","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"ownershipTokenCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"paused","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"salesOfSuls","outputs":[{"name":"salesSuls","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"SulIndexToApproved","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"SulIndexToOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_interfaceID","type":"bytes4"}],"name":"supportsInterface","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"},{"name":"_preferredTransport","type":"string"}],"name":"tokenMetadata","outputs":[{"name":"infoUrl","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"tokensOfOwner","outputs":[{"name":"ownerTokens","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
+    var message;
+
+    message = myWeb3.eth.contract(abi).at(contractAddress);
+    // console.log(message);
+    message.tokensOfOwner(ceoAddress, function (err,res) {
+
+        for(var i=0; i<res.length; i++){
+            var sulid = res[i].c[0];
+
+            message.getSul.call(sulid, function (err, res) {
+
+                var barcode = "";
+                for(var e=0; e < res[0].c.length; e++){
+                    barcode += String(res[0].c[e]);
+                }
+
+
+                var weis = web3.toWei(res[3].c[0] * 10 ** res[3].e);
+                var Toeths = web3.fromWei(weis, 'ether');
+
+
+
+                var form_data = new FormData();
+                var imgpath = '';
+
+                form_data.append("tokenName", res[1]);
+
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                    }
+                });
+
+                console.log(res);
+                if(res[6]){
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/get_image/",
+                        data: form_data,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function(data) {
+                            imgpath =  data.img;
+                            des = data.des;
+                            tp = data.types;
+                            //alcohol drink icecream something Market_box_default
+                            //console.log(Toeths);
+
+                            var text_data = '<div class="column itemsC card resize_card '+ tp +'" name="marketsul" data-name="'+res[1]+'" data-id="'+res[4].c[0]+'" onclick="addSul('+"\'"+res[1]+"\'"+','+res[4].c[0]+')" style="padding: 0px;width:200px;">' +
+                                "<img src='/static/img/market-box-default@3x.png' style='position: absolute;width: 100%;' data-index='"+res[1]+"'>"+
+                                '<div class="Lv1_card">Lv.'+res[5].c[0]+'</div>' +
+                                '    <div class="card_drawing">' +
+                                '<img src="'+imgpath+
+                                '" class="Market_img_cola hovereffect" style="width:100%;">' +
+                                '</div>' +
+                                '<div class="Cocacola">'+res[1]+'</div>' +
+                                '<div class="Line-Copy-100"></div>' +
+                                '<div class="description" >'+des+'</div>' +
+                                '<div class="Line-Copy-100"></div>' +
+                                '<div class="ETH-price" style="padding-bottom: 60px;">'+web3.fromWei(Toeths,'ether')+' eth</div>' +
+                                '</div>';
+
+                            $('#cardAlignment').append(
+                                text_data
+                            );
+
+
+                        }
+
+                    });
+                }
+
+            });
+        }
+
+    });
+
+
+    var addListSul = [];
+    var addListEth = 0;
+
+
+    function addSul(tkname, tkid) {
+
+
+        var added = $('#purchased');
+        var form_data = new FormData();
+        var imgpath = '';
+
+        form_data.append("tokenName", tkname);
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/api/get_image/",
+            data: form_data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                imgpath = data.img;
+                des = data.des;
+
+                //console.log(String(jQuery.inArray(tkid, addListSul)) !== "-1");
+
+                if(String(jQuery.inArray(tkid,addListSul)) !== "-1"){
+
+                    alert("이미 추가된 재료다옹");
+                }else{
+                    $('img[data-index="'+tkname+'"]').attr('src','{% static "img/box-selected@3x.png" %}');
+                    message.getSul.call(tkid, function (err, res) {
+                        var weis = web3.toWei(res[3].c[0] * 10 ** res[3].e);
+                        var Toeths = web3.fromWei(weis,'ether');
+
+                        //console.log(weis);
+                        //console.log(Toeths);
+
+                        var textdata = '<div class="minicard '+tkname+'" data-index="'+tkid+'" >\n' +
+                            '<div class="mshover" style="z-index:2;position:relative;height:30px;top:10px;">\n'+
+                            '<img src="/static/img/market\-cartbox\-close.png" style="width:20px;position:absolute;right:5px;cursor:pointer;" onclick="delSul('+"\'"+tkname+"\'"+','+tkid+')" />'+
+                            '</div>\n' +
+                            '<div style="position:relative;top:-30px;"><div class="" style="text-align: center; padding-top: 25px;">\n' +
+                            '<img src="'+ imgpath +'" alt="" style="width: 50%;">\n' +
+                            '</div>\n' +
+                            '<div class="Cocacola">\n' + tkname +
+                            '</div>\n' +
+                            '<div class="ETH-price" style="">\n' + web3.fromWei(Toeths,'ether') + ' eth\n' +
+                            '</div></div>\n' +
+
+                            '</div>';
+
+                        added.append(textdata);
+
+                        addListSul.push(
+                            tkid
+                        );
+                        console.log(addListSul);
+                        addListEth = (Number(addListEth)+ Number(web3.fromWei(Toeths,'ether'))).toFixed(8);
+
+                        $('#sumofeth').text(addListEth + " eth");
+                        //update bid
+                        $("#bid_eth").val(addListEth);
+                    });
+                }
+            }
+        });
+    }
+
+
+
+    function delSul(tkname,tkid){
+        let body = document.getElementById('purchased');
+
+        var tsp = window.document.getElementsByClassName("minicard "+tkname)[0];
+        console.log(tsp);
+        $('img[data-index="'+tkname+'"]').attr('src','{% static "img/market-box-default@3x.png" %}');
+
+        message.getSul.call(tkid, function (err, res) {
+            var weis = web3.toWei(res[3].c[0] * 10 ** res[3].e);
+            var Toeths = web3.fromWei(weis,'ether');
+
+            // delete array
+            var addArrayIndex = jQuery.inArray(tkid,addListSul);
+
+            addListSul.splice(addArrayIndex,1);
+
+            // addListEth - eth
+            // console.log("원래 가격: "+web3.toWei(addListEth));
+            // console.log("뺄 가격: "+Toeths);
+
+            addListEth = Number(addListEth) -  Number(web3.fromWei(Toeths,"ether")).toFixed(8);
+            // console.log("뺀가격: "+addListEth + "," + web3.fromWei(addListEth));
+
+            $('#sumofeth').text(addListEth + " eth");
+
+            //update bid
+            $("#bid_eth").val(addListEth);
+            // console.log($("#bid_eth").val());
+            // 삭제하깅 - wrapper error (code상)
+            body.removeChild(tsp);
+
+        });
+
+    }
+
+
+    function bidsul(self){
+        var listup = addListSul;
+        var eth = $("#bid_eth").val();
+
+        // console.log(listup);
+        // console.log(eth);
+        // console.log(web3.toWei(eth, 'ether'));
+
+        if(listup === []){
+            alert("장바구니가 비어있다냥~")
+        }else{
+
+            //가격 최신화
+            message._BidSul( listup , {
+
+                from: web3.eth.accounts[0],
+                gas: web3.toHex(4000000),
+                gasPrice:web3.toHex(2000000000),
+                value: web3.toWei(eth, 'ether')
+
+            }, function(err, res){
+                console.log(err);
+                console.log(res);
+                if(!err){
+                    alert("txId: "+res+"\n" +
+                        "You can find transaction"+
+                        "https://ropsten.etherscan.io/tx/"+"res");
+                }
+            });
+
+
+
+        }
+    }
+
+
+
+</script>
+
+
+<script type="application/javascript">
+    let body = document.getElementById('cardAlignment');
+    //Alcohol Drink Ice Cream Something
+    function filterOf(ft){
+        // init
+        $('div[data-value=all]').removeClass('actives');
+        $('div[data-value=alcohol]').removeClass('actives');
+        $('div[data-value=icecream]').removeClass('actives');
+        $('div[data-value=drink]').removeClass('actives');
+        $('div[data-value=something]').removeClass('actives');
+
+        $('#underbar1').removeClass('on');
+        $('#underbar2').removeClass('on');
+        $('#underbar3').removeClass('on');
+        $('#underbar4').removeClass('on');
+        $('#underbar5').removeClass('on');
+
+        $('#underbar1').addClass('none');
+        $('#underbar2').addClass('none');
+        $('#underbar3').addClass('none');
+        $('#underbar4').addClass('none');
+        $('#underbar5').addClass('none');
+
+
+        // ft : all
+        if(ft === "all"){
+            var under = $('#underbar1');
+        }else if(ft === "alcohol"){
+            // ft : alcohol
+            var under = $('#underbar2');
+        }else if(ft === "drink"){
+             // ft : drink
+            var under = $('#underbar3');
+        }else if(ft === "icecream"){
+            // ft : ice cream
+            var under = $('#underbar4');
+        }else if(ft === "something"){
+            // ft : something
+            var under = $('#underbar5');
+        }
+
+        // push
+        $('div[data-value='+ft+']').addClass('actives');
+        under.addClass('on');
+
+
+
+
+
+        for(var i=1; i<body.childNodes.length; i++){
+            var tt = String(body.childNodes[i].className);
+            var tsp = tt.split(' ');
+
+            var onFilter = body.childNodes[i];
+            if(ft === "all"){
+                onFilter.setAttribute("style", "display:block;padding: 0px;width:200px;");
+            }else if(String(jQuery.inArray(ft,tsp)) !== "-1"){
+                onFilter.setAttribute("style", "display:block;padding: 0px;width:200px;");
+            } else{
+                onFilter.setAttribute("style", "display:none;padding: 0px;width:200px;");
+            }
+        }
+    }
+
+
+</script>
+
+</html>

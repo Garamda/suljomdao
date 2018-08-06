@@ -1,0 +1,459 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SULJOMDAONG | MARKET</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'thirdparty/semantic/semantic.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .result-upper{
+            position: absolute;
+            top: 40px;
+            left:115px;
+            z-index: -1;
+
+        }
+
+        .result-upper-1{
+            position: absolute;
+            top: -15px;
+            left: 105px;
+            z-index: -1;
+        }
+        .result-upper-2{
+            position: absolute;
+            top: -18px;
+            left: 103px;
+            z-index: -1;
+        }
+
+        .result-upper-3{
+            position: absolute;
+            top: -375px;
+            left: 85px;
+            z-index: -1;
+        }
+        .result-upper-xamll{
+            position: absolute;
+            top: -8px;
+            left: 100px;
+            z-index: -1;
+        }
+
+        .result-color{
+            background-color: #e6e6e6;
+            height: 225px;
+            width: 99%;
+            position: absolute;
+            top: 36px;
+            z-index: -1;
+        }
+        .result-color-1{
+            height: 67px;
+            width: 93px;
+            position: absolute;
+            z-index: -1;
+            top: 25px;
+            left: 73px;
+        }
+        .result-color-2{
+            height: 62px;
+            width: 88px;
+            position: absolute;
+            top: 24px;
+            z-index: -1;
+            left: 76px;
+        }
+        .result-color-3{
+            height: 34px;
+            width: 64px;
+            position: absolute;
+            /* top: 158px; */
+            top: 15px;
+            left: 87px;
+            z-index: -1;
+        }
+
+        .result-st{
+            width: 100%;
+            margin: 0 auto;
+            height: 100%;
+            text-align: center;
+
+        }
+        .ft-st-1{
+            position: absolute;
+            top: -5px;
+            left: 10px;
+        }
+        .ft-st-2{
+            position: absolute;
+            top: -8px;
+            left: 10px;
+        }
+
+        .ft-st-1-upper{
+            position: relative;
+            top: 50px;
+        }
+
+        .ft-st-2-upper{
+            position: relative;
+            top: -40px;
+        }
+
+
+
+
+        .none{
+            display: none;
+        }
+        .suljan_img1{
+            position: absolute;
+            top: -270px;
+        }
+        .suljan_img2{
+            position: absolute;
+            top: -290px;
+        }
+        .suljan_img3{
+            position: absolute;
+            top: -270px;
+        }
+        .MY_box_default {
+            width: 240px;
+            height: auto !important;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 32px;
+            padding: 0px;
+            margin-right: 40px;
+            background: transparent !important;
+        }
+        .Swings-Ddam-Liquor {
+            width: 150px;
+            height: 16px;
+            font-family: NotoSansCJKkrBlack;
+            font-size: 15px;
+            font-weight: 900;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-align: center;
+            color: #333333;
+            color: var(--black);
+            margin-top: 20px;
+        }
+        .-SULJOMDAO- {
+            width: 85px;
+            height: 14px;
+            font-family: KlavikaBold;
+            font-size: 14px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-align: center;
+            color: #333333;
+            color: var(--black);
+            margin-top: 4px;
+        }
+
+
+        .Rectangle-3 {
+            width: 208px;
+            height: 160px;
+            background-color: rgba(249,234,126,.75);
+
+            margin-top: 16px;
+        }
+        .composition {
+            display: flex;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 16px;
+            height: 56px;
+        }
+        .Rectangle {
+            width: 56px;
+            height: 56px;
+            background-color: #ffffff;
+            border: solid 1px #d7ade3;
+        }
+        .Rectangle-4 {
+            width: 1px;
+            height: 56px;
+            background-color: #d8d8d8;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .Line-Copy-9 {
+            width: 208px;
+            height: 1px;
+            border: solid 1px #c8c8c8;
+            border: solid 1px var(--pinkish-grey);
+            margin-top: 16px;
+            margin-left: 16px;
+            margin-bottom: 12px;
+        }
+        .textbox {
+            width: 176px;
+            height: 50px;
+            display: flex;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+        .explanation{
+            width:auto;
+            margin-left: 0px;
+            font-family: NotoSansCJKkrMD;
+        }
+        .ingre50{
+            height: 54px;
+            max-height: 54px;
+            max-width: 54px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="ui grid" style="margin-left: 0px;margin-right: 0px;">
+
+        <div id="section" style="position: fixed;background-color: white;padding:0px;top: 0px;margin-top: 0px;z-index: 10;">
+
+            <div class="LOGO">
+                <a href="{% url 'market_place' %}">
+                    SULJOMDAO
+                </a>
+            </div>
+            <div class="menu-right">
+                <div class="menu_MARKET">
+                    <a href="{% url 'market_place' %}">MARKET</a>
+                </div>
+                <div class="menu_MY"><a href="{% url 'mypage' %}">MY</a></div>
+                <div class="Rectangle-8-Copy">
+                    <div class="MAKE"><a href="{% url 'make' %}">MAKE</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class = "middle_market" style="width: 100%;margin-top: 61px;">
+            <div id="leftbox" style="width: 120px;"></div>
+
+            <div class = "center" style="margin-left: 20px;">
+                <div class="MARKET" style="width: auto;">Alcohol Lab</div> <!--왜 Market 폰트가 정확히 반영이 안 되는거지?-->
+
+                <div id="menublock">
+                    <div class="Lv1_my">Lv.{{ level }}</div>
+                    <div class="layer">알콜찌랭이</div> <!-- 보라색 컬러가 안나옴-->
+                    <div class="-Material" style="margin-left: 40px;">35 Material</div>
+                </div>
+
+                <div id="cardAlignment" style="margin: 0 auto;" class="">
+                    <div class="ui five column grid">
+                        {% for each in my %}
+                            <div class="MY_box_default" style="position: relative;margin-bottom: 48px;">
+                                <div style="position: absolute;height: 100%;width: 100%;">
+                                    {% if each.counter_ingre > 3 %}
+                                        <img src="{% static 'img/my-box-default-long.png' %}" alt="" style="position: absolute;left: -15px;height: 105%;width: 100%;">
+                                    {% else %}
+                                        <img src="{% static 'img/my-box-default.png' %}" alt="" style="position: absolute;left: -15px;width: 100%;">
+                                    {% endif %}
+                                </div>
+                                <div class="Swings-Ddam-Liquor" style="text-align: center;margin: 0 auto;margin-top: 20px;padding-top: 10px;width: auto;font-family: SpoqaHanSans;">{{ each.name }}</div>
+                                <div class="-SULJOMDAO-" style="text-align: center;margin: 0 auto;margin-top: 4px;"></div>
+                                <div class="Rectangle-3" style="margin-left: 0px;text-align: center;background-color: {{ each.bg }}">
+                                </div>
+                                <span>
+
+                                        <div class="">
+                                            <div class="result" style="position: absolute;bottom: 305px;left: 0px;z-index:3;">
+                                                <div class="result-inner" style="">
+
+                                                    <div class="result-jan">
+                                                        <div class="result-upper {% if each.suljan == 1 %}result-upper-2{% elif each.suljan == 0 %}result-upper-1{% elif suljan == 2 %}result-upper-3{% endif %} " data-index="uppperP"  data-scale="{{ each.index }}">
+                                                            {% if each.ice %}
+                                                                <img data-value="{{ each.index }}" data-index="upper" src="/static/upper/img-mixed-icecream-{{ each.ice.img_index }}.png" alt="" style="width: 30%;">
+                                                            {% else %}
+                                                            {% endif %}
+                                                        </div>
+
+                                                        {% if each.suljan == 0 %}
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" viewBox="0 0 257 263" style="left: 72px;position: relative;">
+                                                                <g fill="none" fill-rule="evenodd">
+                                                                    <path fill="{{ each.bg }}" d="M250.56 128.34v67.189h-6.12V213.9h-6.13v12.17h-6.12v6.12h-6.04v6.12h-6.121v6.13h-6.13v6.12h-6.12v6.12h-6.119v6.13H256.68V128.34z"/>
+                                                                    <path fill="{{ each.bg }}" d="M213.9 244.44v-6.13h6.13v-6.12h6.12v-6.12h6.04V213.9h6.12v-18.37h6.13v-67.19h6.12V36.66h-6.12v85.56h-6.13v67.19h-6.12v18.37h-6.04v12.24h-6.12v6.05h-6.13v6.12h-6.12v6.12h-6.12v6.13H55.03v-6.13H48.9v-6.12h-6.12v-6.12h-6.12v-6.05h-6.13v-12.24h-6.04v-18.37h-6.12v-67.19h-6.13V36.66H6.12v91.68h6.12v67.19h6.13v18.37h6.12v12.17h6.04v6.12h6.13v6.12h6.12v6.13h6.12v6.12h158.88v-6.12z"/>
+                                                                    <path fill="{{ each.bg }}" d="M0 128.34v134.47h55.03v-6.13H48.9v-6.12h-6.12v-6.12h-6.12v-6.13h-6.13v-6.12h-6.04v-6.12h-6.12V213.9h-6.13v-18.37H6.12V128.34z"/>
+                                                                    <path fill="#231F20" d="M0 0v128.34h6.12V6.12h244.44V128.34h6.12V0zM244.44 134.46V195.53h6.12v-67.19h-6.12zM238.31 201.66v12.24h6.13v-18.37h-6.13zM232.19 220.02v6.05h6.12V213.9h-6.12zM226.15 232.19h6.04v-6.12h-6.04zM220.03 238.31h6.12v-6.12h-6.12zM213.9 244.44h6.13v-6.13h-6.13zM207.78 250.56h6.12v-6.12h-6.12zM201.66 250.56H48.9v6.12h6.13v6.13H201.66v-6.13h6.12v-6.12zM42.78 250.56h6.12v-6.12h-6.12zM36.66 244.44h6.12v-6.13h-6.12zM30.53 238.31h6.13v-6.12h-6.13zM24.49 232.19h6.04v-6.12h-6.04zM24.49 213.9h-6.12v12.17h6.12v-6.05zM18.37 201.66v-6.13h-6.13v18.37h6.13v-6.12zM12.24 183.37v-55.03H6.12v67.19h6.12v-6.12z"/>
+                                                                </g>
+                                                            </svg>
+
+                                                        {% elif each.suljan == 1 %}
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" viewBox="0 0 227 282" style="left: 72px;position: relative;">
+                                                                <g fill="none" fill-rule="evenodd">
+                                                                    <path fill="{{ each.bg }}" d="M12.16 85.56v-6.12h6.13V61.07h6.12v-6.05H6.12v42.79h6.04v-6.13zM213.82 55.02h-12.16v6.05h6.12v18.37h6.04v18.37h6.12V55.02zM213.82 140.59v6.04h-6.04v12.25h-6.12V165h-6.13v6.12h-6.12v6.12h-6.12v6.13h-6.13v6.04H165v6.12h-12.25v6.13h-18.37v6.12H219.94v-79.44h-6.12v6.12zM79.44 201.66h-6.13v-6.13H61.07v-6.12H48.82v-6.04h-6.04v-6.13h-6.12v-6.12h-6.13V165h-6.12v-6.12h-6.12v-12.25h-6.13v-18.29H6.12v79.44H91.6v-6.12h-6.04z"/>
+                                                                    <path fill="{{ each.bg }}" d="M207.78 91.68V79.44h-6.12V61.07h-6.13v-6.05h-6.12v12.17h6.12v18.37h6.13v18.29h6.12v18.37h-6.12v18.37h-6.13v12.16h-6.12v6.13h-6.12V165h-6.13v6.12h-6.04v6.12h-12.25v6.13h-12.24v6.04h-18.29v6.12H97.73v-6.12H79.44v-6.04H67.19v-6.13H54.94v-6.12h-6.12V165h-6.04v-6.12h-6.12v-6.13h-6.13v-12.16h-6.12v-18.37h-6.12v-18.37h6.12V85.56h6.12V67.19h6.13V55.02h-6.13v6.05h-6.12v18.37h-6.12v18.37h-6.13v30.53h6.13v18.29h6.12v12.25h6.12V165h6.13v6.12h6.12v6.12h6.04v6.13h12.25v6.04h12.24v6.12H91.6v6.13h42.78v-6.13h18.37v-6.12H165v-6.04h12.16v-6.13h6.13v-6.12h6.12V165h6.12v-6.12h6.13v-12.25h6.12v-18.29h6.04V97.81h-6.04z"/>
+                                                                    <path fill="#231F20" d="M219.939 12.24h6.131V6.12h-6.131zM213.82 109.97v18.37h6.12V97.81h-6.12v6.04zM213.82 18.37v6.04h6.12V12.24h-6.12zM207.78 134.46v12.17h6.04v-18.29h-6.04zM207.78 91.68v6.13h6.04V79.44h-6.04v6.12zM207.779 30.53h6.041v-6.12h-6.041zM201.66 152.75v6.13h6.12v-12.25h-6.12zM201.66 73.31v6.13h6.12V61.07h-6.12v6.12zM201.66 36.66v6.12h6.12V30.53h-6.12zM195.529 165h6.131v-6.12h-6.131zM195.53 48.9v12.17h6.13V42.78h-6.13zM189.41 171.12h6.119V165h-6.119zM183.29 177.24h6.12v-6.12h-6.12zM177.16 183.37h6.13v-6.13h-6.13zM165 183.37v6.04h12.16v-6.04h-6.04zM152.75 189.41v6.12H165v-6.12h-6.13zM140.51 195.53h-6.13v6.13h18.37v-6.13h-6.12zM128.34 201.66H91.6v6.12h18.37v67.19H67.19v6.12h91.681v-6.12H116.09v-67.19h18.29v-6.12zM85.56 195.53H73.31v6.13H91.6v-6.13zM67.19 189.41h-6.12v6.12h12.24v-6.12zM54.94 183.37h-6.12v6.04h12.25v-6.04zM42.78 183.37h6.04v-6.13h-6.04zM36.66 177.24h6.12v-6.12h-6.12zM30.53 171.12h6.13V165h-6.13zM24.41 165h6.12v-6.12h-6.12zM30.53 55.02V42.78h-6.12v18.29h6.12zM24.41 146.63h-6.12v12.25h6.12v-6.13zM24.41 73.31V61.07h-6.12v18.37h6.12zM24.41 30.53h-6.12v12.25h6.12v-6.12zM18.29 134.46v-6.12h-6.13v18.29h6.13v-6.04zM18.29 91.68V79.44h-6.13v18.37h6.13zM12.16 30.53h6.13v-6.12h-6.13zM6.12 0v6.12H219.939V0zM12.16 116.09V97.81H6.12v30.53h6.04v-6.12zM12.16 12.24H6.12v12.17h6.04v-6.04zM0 12.24h6.12V6.12H0z"/>
+                                                                </g>
+                                                            </svg>
+                                                        {% else %}
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" viewBox="0 0 263 263" style="left: 72px;position: relative;">
+                                                                <g fill="none" fill-rule="evenodd">
+                                                                    <path fill="{{ each.bg }}" d="M213.9 55.02v6.12h-6.12v6.05h-6.12v6.12h-6.13v6.12h-6.04v6.13h-6.12v6.12h-6.13v6.12h-6.12v6.13H165v6.04h-6.12v6.12h-6.13v6.12h-6.04v6.13h-6.12v6.12h85.56V48.9h-6.12v6.12zM116.1 122.21h-6.13v-6.12h-6.04v-6.12h-6.12v-6.04h-6.13V97.8h-6.12v-6.12h-6.12v-6.12h-6.13v-6.13h-6.12v-6.12h-6.04v-6.12h-6.12v-6.05H48.9v-6.12h-6.12V48.9h-6.12v85.56h85.56v-6.12h-6.12z"/>
+                                                                    <path fill="{{ each.bg }}" d="M226.15 42.78v-6.13H213.9v6.13h-6.12v6.12h-6.12v6.12h-6.13v6.119h-6.04v6.051h-6.12v6.12h-6.13v6.12h-6.12v6.13H165v6.12h-6.12v6.12h-6.13v6.13h-6.04v6.039h-6.12v6.122h-6.13v6.119h-6.12v-6.119h-6.12v-6.122h-6.12v-6.039h-6.13V97.8h-6.04v-6.12h-6.12v-6.12h-6.13v-6.13h-6.12v-6.12h-6.12v-6.12h-6.13v-6.051h-6.12V55.02h-6.04V48.9h-6.12v-6.12H48.9v-6.13H36.66v6.13h6.12v6.12h6.12v6.12h6.13v6.119h6.12v6.051h6.04v6.12h6.12v6.12h6.13v6.13h6.12v6.12h6.12v6.12h6.13v6.13h6.12v6.039h6.04v6.122h6.13v6.119h6.12v6.131h18.37v-6.131h6.12v-6.119h6.04v-6.122h6.13v-6.039H165V97.8h6.12v-6.12h6.12v-6.12h6.13v-6.13h6.12v-6.12h6.04v-6.12h6.13v-6.051h6.12V55.02h6.12V48.9h6.13v-6.12z"/>
+                                                                    <path fill="#231F20" d="M0 0v12.24h6.12V6.12h250.56v6.12h6.13V0z"/>
+                                                                    <path fill="#231F20" d="M250.561 18.36h6.119v-6.12h-6.119zM244.44 24.49h6.12v-6.13h-6.12zM238.311 30.53h6.13v-6.04h-6.13zM232.19 36.65h6.12v-6.12h-6.12zM226.15 42.78h6.04v-6.13h-6.04zM220.03 48.9h6.12v-6.12h-6.12zM213.9 55.02h6.13V48.9h-6.13zM207.78 61.139h6.12V55.02h-6.12zM201.66 67.19h6.12v-6.051h-6.12zM195.53 73.31h6.13v-6.12h-6.13zM189.49 79.43h6.04v-6.12h-6.04zM183.37 85.56h6.12v-6.13h-6.12zM177.24 91.68h6.13v-6.12h-6.13zM171.12 97.8h6.12v-6.119h-6.12zM165 103.93h6.12v-6.131H165zM158.88 109.969H165v-6.039h-6.12zM152.75 116.091h6.13v-6.121h-6.13zM146.71 122.21h6.04v-6.119h-6.04zM140.59 128.341h6.12v-6.131h-6.12zM134.46 128.34h-12.24v6.12h6.12V256.679H91.679v6.12h79.441v-6.12H134.46V134.46h6.13v-6.118z"/>
+                                                                    <path fill="#231F20" d="M116.1 128.341h6.12v-6.131h-6.12zM109.97 122.21h6.13v-6.119h-6.13zM103.93 116.091h6.04v-6.121h-6.04zM97.811 109.969h6.119v-6.039h-6.119zM91.68 103.93h6.131v-6.131H91.68zM85.561 97.8h6.119v-6.119h-6.119zM79.44 91.68h6.12v-6.12h-6.12zM73.311 85.56h6.13v-6.13h-6.13zM67.19 79.43h6.12v-6.12h-6.12zM61.15 73.31h6.04v-6.12h-6.04zM55.03 67.19h6.12v-6.051h-6.12zM48.9 61.139h6.13V55.02H48.9zM42.78 55.02h6.12V48.9h-6.12zM36.66 48.9h6.12v-6.12h-6.12zM30.53 42.78h6.13v-6.13h-6.13zM24.49 36.65h6.04v-6.12h-6.04z"/>
+                                                                    <path fill="#231F20" d="M18.37 30.53h6.12v-6.04h-6.12zM12.24 24.49h6.13v-6.13h-6.13zM6.12 18.36h6.12v-6.12H6.12z"/>
+                                                                </g>
+                                                            </svg>
+
+                                                        {% endif %}
+                                                        <div class="result-color {% if each.suljan == 0 %}result-color-1{% elif each.suljan == 1 %}result-color-2{% else %}result-color-3{% endif %}" style="background:{% if each.is_gra == "N" %}{{ each.css }}{% else %}linear-gradient(to bottom,{{ each.css }}){% endif %};">
+                                                            <div class="result-st" id="st-parant">
+                                                                {% if each.st %}
+                                                                    {% for each in each.st %}
+                                                                        <img src="/static/fix_img/img-sld-{{ each.img_index }}.png" alt="" class="el_st ft-st-{% if each.suljan == 0 %}1{% else %}2{% endif %}" style="width: 80%;">
+                                                                    {% endfor %}
+                                                                {% else %}
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+
+
+                                <div class="composition" style="margin: 16px 0px;text-align: center;" data-type="comp1" data-index="comp1_{{ each.index }}">
+                                    {% for i in each.ingre1 %}
+                                        <div class="Rectangle" style="border: transparent;">
+                                            {% if i.types == "drink" %}
+                                                <img src="/static/fix_img/img-drk-{{ i.img_index }}.png" alt="" class="ingre50">
+                                            {% elif i.types == "alcohol" %}
+                                                <img src="/static/fix_img/img-alc-{{ i.img_index }}.png" alt="" class="ingre50">
+                                            {% elif i.types == "icecream" %}
+                                                <img src="/static/fix_img/img-ice-{{ i.img_index }}.png" alt="" class="ingre50">
+                                            {% elif i.types == "something" %}
+                                                <img src="/static/fix_img/img-sld-{{ i.img_index }}.png" alt="" class="ingre50">
+                                            {% endif %}
+                                        </div>
+                                        <div class="Rectangle-4 dividers1 comp1_{{ each.index }}"></div>
+                                    {% endfor %}
+                                </div>
+                                {% if each.ingre2 %}
+                                    <div class="composition" style="margin: 16px 0px;text-align: center;" data-type="comp2" data-index="comp2_{{ each.index }}">
+                                        {% for i in each.ingre2 %}
+                                            <div class="Rectangle" style="border: transparent;">
+                                                {% if i.types == "drink" %}
+                                                    <img src="/static/fix_img/img-drk-{{ i.img_index }}.png" alt="" class="ingre50">
+                                                {% elif i.types == "alcohol" %}
+                                                    <img src="/static/fix_img/img-alc-{{ i.img_index }}.png" alt="" class="ingre50">
+                                                {% elif i.types == "icecream" %}
+                                                    <img src="/static/fix_img/img-ice-{{ i.img_index }}.png" alt="" class="ingre50">
+                                                {% elif i.types == "something" %}
+                                                    <img src="/static/fix_img/img-sld-{{ i.img_index }}.png" alt="" class="ingre50">
+                                                {% endif %}
+                                            </div>
+                                            <div class="Rectangle-4 dividers2 comp2_{{ each.index }}" ></div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                <div class="Line-Copy-9" style="width:208px;margin:0 auto;height: 1px;border: solid 1px #c8c8c8;margin-top: 16px;margin-bottom: 12px;"></div>
+                                <div class="textbox">
+                                    <div class="textalign">
+                                        <div class="text11">숙취</div>
+                                        <div class="text22" style="text-align:right">{{ each.headache }}%</div>
+                                    </div>
+                                    <div class="textalign">
+                                        <div class="text11">비만도</div>
+                                        <div class="text22" style="text-align:right">{{ each.degreeOfPig }}kcal</div>
+                                    </div>
+                                    <div class="textalign">
+                                        <div class="text11">{{ each.specials_name }}</div>
+                                        <div class="text22" style="text-align:right">+ {{ each.specials }}</div>
+                                    </div>
+                                </div>
+                                <div class="Line-Copy-99" style="width:208px;margin:0 auto;height: 1px;border: solid 1px #c8c8c8;margin-top: 8px;margin-bottom: 12px;"></div>
+                                <div class="explanation" style="font-family: SpoqaHanSans;font-weight: bold;">{{ each.desc|safe }}</div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+<script>
+    var cp1Node = $("div[data-type='comp1']");
+    var cp2Node = $("div[data-type='comp2']");
+
+    console.log(cp1Node);
+
+    for(var nod =0; nod<cp1Node.length; nod++){
+        var cp1_count = cp1Node[nod].children.length;
+
+        if(Number(cp1_count) === 6){
+            var dataIndex = cp1Node[nod].attributes[3].value;
+            document.getElementsByClassName(dataIndex)[2].remove();
+        }
+    }
+
+    for(var nod =0; nod<cp2Node.length; nod++){
+        var cp2_count = cp2Node[nod].children.length;
+
+        if(Number(cp2_count) === 6){
+            var dataIndex = cp2Node[nod].attributes[3].value;
+            document.getElementsByClassName(dataIndex)[2].remove();
+        }
+    }
+
+
+    var Imgsets = document.querySelectorAll('img[data-index="upper"]');
+    console.log(Imgsets);
+    for(var i=0;Imgsets.length;i++){
+
+        var img = new Image();
+
+        img.onload = function(){
+            console.log("upper 높이: "+img + " heL:" +this.height);
+            console.log(this.getAttribute("data-value"));
+            if(this.height < 130){
+                console.log($("div[data-scale='"+this.getAttribute("data-value")+"']"));
+
+                $("div[data-scale='"+this.getAttribute("data-value")+"']").addClass("result-upper-xamll");
+
+
+            }else{
+                console.log("pass");
+
+            }
+        };
+
+        img.src = Imgsets[i].src;
+        img.setAttribute("data-value",Imgsets[i].attributes[0].textContent)
+
+    }
+
+
+</script>
+
+</html>

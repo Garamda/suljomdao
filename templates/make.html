@@ -1,0 +1,475 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SULJOMDAONG | MAKE</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'thirdparty/semantic/semantic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/make.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .make_box_deft{
+            background-image: url({% static 'img/market-box-default.png' %});
+            background-size: contain;
+        }
+        .Make_box_materialList {
+            width: 240px;
+            height: 100px;
+            object-fit: contain;
+            background-image: url('{% static 'img/make-box-material-list.png' %}');
+            margin-left: 16px;
+            margin-bottom: 16px;
+            display: flex;
+        }
+        .Cocacola_make{
+            margin-left: 0px;
+            text-align: center;
+            width: auto;
+        }
+        .Make_box_empty{
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            background-image: url({% static 'img/make-box-empty.png' %});
+            margin-left: 8px;
+        }
+        .Rectangle_make{
+                width: 80px;
+    height: 80px;
+    margin-left: 11px;
+    margin-right: 1px;
+    margin-top: 11px;
+    z-index: -1;
+        }
+        .Alcohol_make_list {
+            height: 14px;
+    font-family: KlavikaBold;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    margin-left: 0px;
+    margin-top: 47px;
+        }
+        .Box_right{
+
+        }
+        .Box_right_order{
+            display: flex;
+        }
+        .make_list_align{
+            display: block;
+            margin: auto;
+            margin-top: 7px;
+        }
+        .make_explanation {
+            width: 84px;
+            height: 28px;
+            font-family: SpoqaHanSans;
+            font-size: 11px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.27;
+            letter-spacing: normal;
+            text-align: left;
+            color: #333333;
+
+            margin-top: 8px;
+        }
+        .Lv1_makelist {
+                width: 23px;
+    height: 15px;
+    font-family: Supply;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -1.7px;
+    text-align: left;
+    color: #848484;
+    margin-left: 0px;
+    margin-top: 30px;
+    position: absolute;
+        }
+        .img_align{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .selectors{
+            border: none;
+            background: transparent;
+            width: 582px;
+            height: 32px;
+            font-family: SpoqaHanSans;
+            font-size: 30px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.07;
+            letter-spacing: normal;
+            text-align: center;
+            color: #9d9d9d;
+
+        }
+        .Rectangle-8_make {
+            width: 103px;
+            height: 41px;
+            background-color: #000000;
+            margin: 0 auto;
+            margin-top: 56px;
+        }
+
+
+        .MAKE_make {
+            background: transparent;
+            margin-top: -3px;
+            padding-top: 11px;
+            width: 100%;
+            height: 41px;
+            z-index: 1;
+            border: none;
+        }
+
+
+        .Alcohol_make_list{
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="ui grid" style="margin-left: 0px;margin-right: 0px;">
+
+        <div id="section" style="position: fixed;background-color: white;padding:0px;top: 0px;margin-top: 0px;z-index: 1;">
+
+            <div class="LOGO" style="margin-left: 106px;">
+                <a href="{% url 'market_place' %}">
+                    SULJOMDAO
+                </a>
+            </div>
+            <div class="menu-right" style="position: absolute;right: 80px;margin-right: 0px;">
+                <div class="menu_MARKET">
+                    <a href="{% url 'market_place' %}">MARKET</a>
+                </div>
+                <div class="menu_MY"><a href="{% url "mypage" %}">MY</a></div>
+                <div class="Rectangle-8-Copy">
+                    <div class="MAKE"><a href="{% url 'make' %}">MAKE</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class = "middle_market" style="width: 80%;margin-top: 61px;height: auto;padding-left: 0rem;">
+            <div id="leftbox" style="margin-left: 106px;"></div>
+
+            <div class = "center" style="">
+                <div class="MARKET" style="width: auto;">Alcohol Lab</div> <!--왜 Market 폰트가 정확히 반영이 안 되는거지?-->
+
+                <div id="menublock">
+                    <div class="Lv1_my">Lv.{{ level }}</div>
+                    <div class="layer"> 알콜찌랭이</div> <!-- 보라색 컬러가 안나옴-->
+                    <div class="-Material" style="margin-left: 40px;" id="material">35 Material</div>
+                </div>
+
+                <div id="cardAlignment" style="margin: 0 auto;" class="">
+                    {% for each in make_range %}
+                    <div class="Market_box_default make_box_deft card Make_box_empty" style="margin-right: 4px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="Drag-drop" style="color: #c8c8c8;">Drag & drop</div>
+                        <div class="card_drawing_make" style="">
+                            <img src='{% static 'img/market-cartbox-close.png' %}' class='img_align' style="display: none" />
+                        </div>
+                        <div class="Cocacola_make"></div>
+                        <div class="Lv1_make"></div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div style="margin-left: -120px;width: 100%;margin: 0 auto;text-align: center;margin-top: 72px;text-align-last:center;">
+                    <select class="ui dropdown request selectors" onchange="onRequest(this.options[this.selectedIndex].value)" style="border: none;padding: 5px;margin: 0 auto;margin-left: 0px;width: 600px;height: 52px;">
+                        <option value="" disabled selected>
+                            <span class="request_text">술냥이에게 요청할 내용을 선택하세요</span>
+                        </option>
+
+                        {% for each in request_make %}
+                            <option value="{{ each.id }}">{{ each.text }}</option>
+                        {% endfor %}
+
+                    </select>
+
+                    <div class="Rectangle-8_make" style="cursor:pointer">
+                        <form action="{% url 'now_make' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="tkid" value="" id="tkid">
+                            <input type="hidden" name="req_make" value="" id="req_make">
+                            <input type="submit" class="MAKE_make" value="MAKE" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="width:480px;height: 100px; float: right;" ></div>
+        </div>
+        <div class="section" style="position: fixed; width:271px;right:1px;top:61px;padding: 0px;min-height: 400px;background-color: white;margin-top:1px;border-left-color: #d8d8d8;height: 100%;">
+            <div class="section1" style="width: 100%;">
+                <div class="Material-box" style="color: #b300e9;">Material box</div>
+                <div class="Alcohol-Drink-Ic" style="margin-right: 14px;text-align: center;">
+                    <a class="alcohol_" onclick="Categorize(this);" style="color: #4b4b4b;font-weight: 500;">Alcohol</a> <a>|</a>
+                    <a class="drink_" onclick="Categorize(this);" style="color: #4b4b4b;font-weight: 500;">Drink</a> <a>|</a>
+                    <a class="icecream_" onclick="Categorize(this);" style="color: #4b4b4b;font-weight: 500;">Ice Cream</a> <a>|</a>
+                    <a class="something_" onclick="Categorize(this);" style="color: #4b4b4b;font-weight: 500;">Something</a>
+                </div>
+
+                <div id="mybox" style="position: relative;margin-bottom: 30px;min-height: 300px;max-height: 1024px; overflow-y: auto;">
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script type="application/javascript">
+    web3.version.getNetwork((err, netId) => {
+        switch (netId) {
+            case "3":
+                console.log('This is the ropsten test network.');
+                break;
+
+            default:
+                console.log('This is an unknown network.');
+                alert("Change the ropsten test network.");
+        }
+    });
+
+    var origin = '';
+
+    window.addEventListener('load', function() {
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            var myWeb3 = new Web3(window.web3.currentProvider);
+            myWeb3.eth.defaultAccount = window.web3.eth.defaultAccount;
+            var add = myWeb3.eth.defaultAccount;
+
+            myWeb3.eth.getAccounts((error, accounts) => {
+                console.log("first-accounts"+accounts[0]);
+                origin = accounts[0];
+            })
+        } else {
+            alert('MetaMask가 없는 브라우저에서는 보기만 가능합니다.');
+            $('#metamask_add').html('Oops! Your browser does not support Ethereum Ðapps.');
+        }
+
+    });
+
+    // check validate
+    setInterval(function() {
+
+        var myWeb3 = new Web3(window.web3.currentProvider);
+        myWeb3.eth.defaultAccount = window.web3.eth.defaultAccount;
+
+        var check = '';
+
+        myWeb3.eth.getAccounts(
+            (error, accounts) => {
+                check = accounts[0];
+
+                if(check !== origin){
+                    alert("Wallet 주소가 변경되었습니다. 다시 로그인 해주세요.");
+                    window.location.href='/'
+                }
+            }
+        );
+
+    },2000);
+
+    var myWeb3 = new Web3(window.web3.currentProvider);
+    var contractAddress = "0xc0ed549f50e841ba1929b17c1f0232dae69c949c";
+    var abi = [{"constant":false,"inputs":[{"name":"_tokenIdSet","type":"uint256[]"}],"name":"_BidSul","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sulName","type":"string"},{"name":"_price","type":"uint256"},{"name":"_IMGindex","type":"uint256"},{"name":"_gens","type":"uint256"}],"name":"CEOmakeSul","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"sulName","type":"string"},{"indexed":false,"name":"sulId","type":"uint256"},{"indexed":false,"name":"price","type":"uint256"},{"indexed":false,"name":"IMGindex","type":"uint256"},{"indexed":false,"name":"gens","type":"uint256"},{"indexed":false,"name":"sale","type":"bool"}],"name":"Make","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"newContract","type":"address"}],"name":"ContractUpgrade","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"approved","type":"address"},{"indexed":false,"name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"from","type":"address"},{"indexed":false,"name":"to","type":"address"},{"indexed":false,"name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"price","type":"uint256"}],"name":"SumOfPriceEvent","type":"event"},{"constant":false,"inputs":[],"name":"pause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newCEO","type":"address"}],"name":"setCEO","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newCOO","type":"address"}],"name":"setCOO","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_contractAddress","type":"address"}],"name":"setMetadataAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"unpause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"count","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ceoAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"cooAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"erc721Metadata","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint256"}],"name":"getSul","outputs":[{"name":"barcode","type":"uint256"},{"name":"sulName","type":"string"},{"name":"generateTime","type":"uint256"},{"name":"price","type":"uint256"},{"name":"IMGindex","type":"uint256"},{"name":"gens","type":"uint256"},{"name":"sale","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"name":"owner","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"ownershipTokenCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"paused","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"salesOfSuls","outputs":[{"name":"salesSuls","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"SulIndexToApproved","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"SulIndexToOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_interfaceID","type":"bytes4"}],"name":"supportsInterface","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"},{"name":"_preferredTransport","type":"string"}],"name":"tokenMetadata","outputs":[{"name":"infoUrl","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"tokensOfOwner","outputs":[{"name":"ownerTokens","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
+    var message;
+
+    message = myWeb3.eth.contract(abi).at(contractAddress);
+    // call enable items
+    var itemlists = [];
+
+    message.tokensOfOwner.call('0xAB3e2F45701474fE7B7506C6A4E64Db491AF7437', function (err,res) {
+
+        for(var d=0; d<res.length; d++){
+            itemlists.push(res[d].c[0]);
+        }
+
+    });
+
+    //material counter
+    message;
+
+
+    function starts(){
+
+
+        myWeb3.eth.getAccounts(
+            (error, accounts) => {
+
+                if(!error){
+                    console.log("tokensOfOwner-"+accounts[0]);
+                    message.tokensOfOwner.call(accounts[0], function(err,res){
+                        console.log("res:"+res);
+
+                        for(var tid=0; tid<res.length; tid++){
+                            message.getSul.call(res[tid], function (err, ress) {
+                                console.log("getSul: "+ress);
+                                var form_data = new FormData();
+                                var imgpath = '';
+
+                                form_data.append("tokenName", ress[1]);
+
+                                $.ajaxSetup({
+                                    beforeSend: function(xhr, settings) {
+                                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                                    }
+                                });
+
+                                console.log(ress);
+                                if(ress) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/api/get_image/",
+                                        data: form_data,
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false,
+                                        success: function (data) {
+                                            imgpath = data.img;
+                                            des = data.des;
+                                            tp = data.types;
+                                            id = data.id;
+
+                                            var AddElement = '<div class="Make_box_materialList '+tp+'_make" id="'+id+'" draggable="true" ondragstart="drag(event)">\n' +
+                                                '<div class="Rectangle_make" style="border:none;">\n' +
+                                                '<img src="'+imgpath+'" class="make_list_align" height="80%" />\n' +
+                                                '</div>\n' +
+                                                '<div class="Box_right">\n' +
+                                                '<div class="Box_right_order">\n' +
+                                                '<div class="Alcohol_make_list">'+ress[1]+'</div>\n' +
+                                                '<p class="Lv1_makelist">Lv.'+ress[5].c[0]+'</p>\n' +
+                                                '</div>\n' +
+                                                '</div>\n' +
+                                                '</div>';
+
+
+                                            $('#mybox').append(
+                                                AddElement
+                                            );
+                                        }
+                                    })
+                                }
+
+                            });
+                        }
+
+                    });
+
+                }
+
+
+            });
+    }
+
+    starts();
+
+
+
+
+
+</script>
+<script>
+    function onRequest(value) {
+
+        $('#req_make').val(value);
+
+    }
+
+    function drag(ev){
+        ev.dataTransfer.setData("text",ev.target.id);
+
+    }
+    function allowDrop(ev){
+        ev.preventDefault();
+    }
+
+    var em_list = [];
+
+    function drop(ev){
+        try{
+            ev.preventDefault();
+        //drag & drop 텍스트 삭제
+        var clearout = ev.target.firstChild.nextElementSibling;
+
+        console.log("Delete child - drag&drop");
+        console.log(clearout.parentNode.childNodes);
+        clearout.parentNode.removeChild(clearout);
+        console.log("Fin child - drag&drop");
+        console.log(clearout.parentNode);
+
+        //이미지 불러오기
+        console.log(ev.dataTransfer);
+        var data = ev.dataTransfer.getData("text");
+        console.log(data);
+        var imgcontainer_parent = document.getElementById(data);
+        var imagecontainer_child = imgcontainer_parent.firstChild.nextElementSibling;
+        var image = imagecontainer_child.firstChild.nextElementSibling;
+
+        ev.target.firstChild.nextElementSibling.firstChild.nextElementSibling.src = image.src;
+        ev.target.firstChild.nextElementSibling.firstChild.nextElementSibling.style.display = "block";
+
+        ev.target.firstChild.nextElementSibling.style.display = 'block';
+        ev.target.appendChild(document.getElementById(data));
+        ev.target.removeChild(document.getElementById(data));
+
+        ev.target.lastChild.previousSibling.previousSibling.previousSibling.innerText = imgcontainer_parent.lastChild.previousSibling.firstChild.nextElementSibling.firstChild.nextElementSibling.innerText;
+        ev.target.lastChild.previousSibling.innerText= imgcontainer_parent.lastChild.previousSibling.firstChild.nextElementSibling.lastChild.previousSibling.innerText;
+
+
+        // data update
+        em_list.push(data);
+
+        console.log(em_list);
+        $('#tkid').val(em_list);
+        }catch (e) {
+            alert('[술냥이의 함정카드 발동]\n- 정성이 부족하다냥! 다시 넣어보라냥!');
+            console.log(e);
+        }finally {
+            console.log("Fin");
+        }
+
+    }
+
+    function Categorize(self)
+    {
+        var holder =  document.getElementsByClassName('Make_box_materialList');
+        for(cards of holder){
+
+            if(cards.className.indexOf(self.className) == -1) cards.style.display = 'none';
+            else cards.style.display = "flex";
+            //ALL 버튼 클릭시 전체 카드 선택 기능 추가
+        }
+    }
+</script>
+
+
+</html>

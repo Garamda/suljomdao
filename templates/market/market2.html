@@ -1,0 +1,325 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'thirdparty/semantic/semantic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<div id="container">
+    <div class="ui grid" style="margin-left: 0px;margin-right: 0px;">
+
+        <div id="section" style="position: fixed;background-color: white;padding:0px;top: 0px;margin-top: 0px;">
+
+            <div class="LOGO">
+                <a href="#">
+                    SULJOMDAO
+                </a>
+            </div>
+            <div class="menu-right">
+                <div class="menu_MARKET">
+                    <a href="{% url 'market_place' %}">MARKET</a>
+                </div>
+                <div class="menu_MY"><a href="#">MY</a></div>
+                <div class="Rectangle-8-Copy">
+                    <div class="MAKE"><a href="{% url 'make' %}">MAKE</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class = "middle_market" style="margin-top: 61px;">
+            <div id="leftbox"></div>
+
+            <div class = "center" style="width: 100%;">
+                <div class="MARKET">MARKET</div>
+                <div id="menublock">
+                    <div class="ALL">ALL</div>
+                    <div class="Alcohol">Alcohol</div>
+                    <div class="Drink">Drink</div>
+                    <div class="Ice-Cream">Ice Cream</div>
+                    <div class="Something">Something</div>
+                </div>
+
+                <div id="cardAlignment" class="ui four column grid">
+                    {% for each in market %}
+                    <div class="column Market_box_default card" style="height:auto;padding-bottom: 25px;cursor:pointer;" data-name="COCACOLA" data-id="0" onclick="addSul('COCACOLA',0)">
+                        <div class="Lv1_card">Lv.0</div>
+                        <div class="card_drawing">
+                            <img src="/media/image/market-img-cola2x.png" class="Market_img_cola">
+                        </div>
+                        <div class="Cocacola">COCACOLA</div>
+                        <div class="Line-Copy-100"></div>
+                        <div class="description">맛있는술</div>
+                        <div class="Line-Copy-100"></div>
+                        <div class="ETH-price">0.03 eth</div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div style="width:480px;height: 100px; float: right;"></div>
+        </div>
+
+        <div class="section" style="position: fixed;right:1px;top:61px;padding: 0px;min-height: 350px;background-color: white;margin-top:1px;border-left-color: #d8d8d8;height: 100%;">
+            <div class="section1">
+                <div class="Market_img_cat">
+                    <img src="{% static 'img/market-img-cat.png' %}" >
+                </div>
+
+                <div style="position: relative;top:190px;margin-bottom: 240px;min-height: 300px;max-height: 630px; overflow-y: auto;" id="purchased">
+
+                </div>
+
+            </div>
+            <div class="Rectangle-6 allCount">
+                <div class="Rectangle-2"></div>
+                <div class="ETH-000012394" id="sumofeth">0 eth</div>
+                <div class="Rectangle-8" onclick="" name="" data-set="" style="cursor: pointer;">
+                    <div class="BUY">
+                        <div class="BUYtext">BUY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script type="application/javascript">
+    web3.version.getNetwork((err, netId) => {
+        switch (netId) {
+            case "3":
+                console.log('This is the ropsten test network.');
+                break;
+
+            default:
+                console.log('This is an unknown network.');
+                alert("Change the ropsten test network.");
+        }
+    });
+
+    var origin = '';
+
+    window.addEventListener('load', function() {
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            var myWeb3 = new Web3(window.web3.currentProvider);
+            myWeb3.eth.defaultAccount = window.web3.eth.defaultAccount;
+            var add = myWeb3.eth.defaultAccount;
+
+            $('#dd').html(add);
+            origin = add;
+
+            myWeb3.eth.getAccounts((error, accounts) => {
+                console.log(accounts[0])
+            })
+        } else {
+            alert('MetaMask가 없는 브라우저에서는 보기만 가능합니다.');
+            $('#metamask_add').html('Oops! Your browser does not support Ethereum Ðapps.');
+        }
+
+    });
+    // check validate
+
+    setInterval(function() {
+
+        var myWeb3 = new Web3(window.web3.currentProvider);
+        myWeb3.eth.defaultAccount = window.web3.eth.defaultAccount;
+
+        var check = '';
+
+        myWeb3.eth.getAccounts(
+            (error, accounts) => {
+                {#console.log(accounts[0]);#}
+                {#console.log(check);#}
+                check = accounts[0];
+
+                if(check !== origin){
+                    alert("Wallet 주소가 변경되었습니다. 다시 로그인 해주세요.");
+                    window.location.href='/'
+                }
+            }
+        );
+
+    },500);
+
+    var myWeb3 = new Web3(window.web3.currentProvider);
+    var contractAddress = "0x0ca1c6a88411449207f3521461cc1eebdd729392";
+    var ceoAddress = "0xAB3e2F45701474fE7B7506C6A4E64Db491AF7437";
+    var abi = [{"constant":false,"inputs":[{"name":"_tokenIdSet","type":"uint256[]"}],"name":"_BidSul","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sulName","type":"string"},{"name":"_price","type":"uint256"},{"name":"_IMGindex","type":"uint256"},{"name":"_gens","type":"uint256"}],"name":"CEOmakeSul","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"approved","type":"address"},{"indexed":false,"name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"newContract","type":"address"}],"name":"ContractUpgrade","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"from","type":"address"},{"indexed":false,"name":"to","type":"address"},{"indexed":false,"name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"sulName","type":"string"},{"indexed":false,"name":"sulId","type":"uint256"},{"indexed":false,"name":"price","type":"uint256"},{"indexed":false,"name":"IMGindex","type":"uint256"},{"indexed":false,"name":"gens","type":"uint256"},{"indexed":false,"name":"sale","type":"bool"}],"name":"Make","type":"event"},{"constant":false,"inputs":[],"name":"pause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newCEO","type":"address"}],"name":"setCEO","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newCOO","type":"address"}],"name":"setCOO","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_contractAddress","type":"address"}],"name":"setMetadataAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"unpause","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"count","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ceoAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"cooAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"erc721Metadata","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint256"}],"name":"getSul","outputs":[{"name":"barcode","type":"uint256"},{"name":"sulName","type":"string"},{"name":"generateTime","type":"uint256"},{"name":"price","type":"uint256"},{"name":"IMGindex","type":"uint256"},{"name":"gens","type":"uint256"},{"name":"sale","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"name":"owner","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"ownershipTokenCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"paused","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"salesOfSuls","outputs":[{"name":"salesSuls","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"SulIndexToApproved","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"SulIndexToOwner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_interfaceID","type":"bytes4"}],"name":"supportsInterface","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"},{"name":"_preferredTransport","type":"string"}],"name":"tokenMetadata","outputs":[{"name":"infoUrl","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"tokensOfOwner","outputs":[{"name":"ownerTokens","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
+    var message;
+
+    message = myWeb3.eth.contract(abi).at(contractAddress);
+
+    message.tokensOfOwner(ceoAddress, function (err,res) {
+
+        for(var i=0; i<res.length; i++){
+            var sulid = res[i].c[0];
+
+            message.getSul.call(sulid, function (err, res) {
+
+                var barcode = "";
+                for(var e=0; e < res[0].c.length; e++){
+                    barcode += String(res[0].c[e]);
+                }
+
+
+                var weis = web3.toWei(res[3].c[0]) / 1000 ;
+                var eths = web3.fromWei(weis,'ether');
+
+                var form_data = new FormData();
+                var imgpath = '';
+
+                form_data.append("tokenName", res[1]);
+
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                    }
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "/api/get_image/",
+                    data: form_data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        imgpath =  data.img;
+                        des = data.des;
+
+                        var text_data = '<div class="column Market_box_default card" style="height:auto;padding-bottom: 25px;cursor:pointer;" data-name="'+res[1]+'" data-id="'+res[4].c[0]+'" onclick="addSul('+"\'"+res[1]+"\'"+','+res[4].c[0]+')">' +
+                        '<div class="Lv1_card">Lv.'+res[5].c[0]+'</div>' +
+                        '    <div class="card_drawing">' +
+                        '<img src="'+imgpath+
+                        '" class="Market_img_cola" >' +
+                        '</div>' +
+                        '<div class="Cocacola">'+res[1]+'</div>' +
+                        '<div class="Line-Copy-100"></div>' +
+                        '<div class="description">'+des+'</div>' +
+                        '<div class="Line-Copy-100"></div>' +
+                        '<div class="ETH-price">'+eths+' eth</div>' +
+                        '</div>';
+
+                        $('#cardAlignment').append(
+                            text_data
+                        );
+
+                    }
+
+                });
+
+
+
+
+
+            });
+        }
+
+    });
+
+
+    function bidsul(tkid, eth){
+        message._BidSul( [tkid] , {
+            from: web3.eth.accounts[0], value: web3.toWei(eth)
+        }, function(err, res){
+            console.log(err);
+            console.log(res);
+        });
+    }
+    function delSul(tkname,tkid){
+
+    }
+
+
+    function SumOfEth(){
+
+    }
+    var addListSul = [];
+    var addListEth = 0;
+
+    function addSul(tkname, tkid) {
+        console.log(addListSul);
+
+        if(tkid in addListSul){
+            alert("이미 추가된 재료다옹");
+        }else{
+
+            var added = $('#purchased');
+            var form_data = new FormData();
+            var imgpath = '';
+
+            form_data.append("tokenName", tkname);
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/api/get_image/",
+                data: form_data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    imgpath = data.img;
+                    des = data.des;
+
+                    console.log(addListSul);
+                    console.log(tkid);
+                    if(tkid in addListSul){
+
+                        alert("이미 추가된 재료다옹");
+                    }else{
+                        message.getSul.call(tkid, function (err, res) {
+                            var weis = web3.toWei(res[3].c[0]) / 1000 ;
+                            var eths = web3.fromWei(weis,'ether');
+
+                            var textdata = '<div class="minicard">\n' +
+                                '<div class="" style="text-align: center; padding-top: 15px;">\n' +
+                                '<img src="'+ imgpath +'" alt="" style="width: 25%;">\n' +
+                                '</div>\n' +
+                                '<div class="Cocacola">\n' + tkname +
+                                '</div>\n' +
+                                '<div class="ETH-price" style="">\n' + eths + ' eth\n' +
+                                '</div>\n' +
+                                '</div>';
+
+                            added.append(textdata);
+
+                            addListSul.push(
+                                tkid
+                            );
+                            addListEth+=Number(eths);
+                            $('#sumofeth').text(addListEth + " eth");
+                            console.log(addListSul);
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+
+
+
+
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,598 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SULJOMDAONG | SIGNIN</title>
+    <style>
+        @-webkit-keyframes swings {
+            5%{
+                -webkit-transform: rotate3d(0,0,1,18deg);
+                transform: rotate3d(0,0,1,18deg);
+            }
+            10%{
+                -webkit-transform: rotate3d(0,0,1,36deg);
+                transform: rotate3d(0,0,1,36deg);
+            }
+            15%{
+                -webkit-transform: rotate3d(0,0,1,54deg);
+                transform: rotate3d(0,0,1,54deg);
+            }
+            20% {
+                -webkit-transform: rotate3d(0,0,1,72deg);
+                transform: rotate3d(0,0,1,72deg);
+            }
+            25% {
+                -webkit-transform: rotate3d(0,0,1,90deg);
+                transform: rotate3d(0,0,1,90deg);
+            }
+            30% {
+                -webkit-transform: rotate3d(0,0,1,108deg);
+                transform: rotate3d(0,0,1,108deg);
+            }
+            35% {
+                -webkit-transform: rotate3d(0,0,1,126deg);
+                transform: rotate3d(0,0,1,126deg);
+            }
+            40% {
+                -webkit-transform: rotate3d(0,0,1,144deg);
+                transform: rotate3d(0,0,1,144deg);
+            }
+            45% {
+                -webkit-transform: rotate3d(0,0,1,162deg);
+                transform: rotate3d(0,0,1,162deg);
+            }
+            50% {
+                -webkit-transform: rotate3d(0,0,1,180deg);
+                transform: rotate3d(0,0,1,180deg);
+            }
+            55% {
+                -webkit-transform: rotate3d(0,0,1,198deg);
+                transform: rotate3d(0,0,1,198deg);
+            }
+            60% {
+                -webkit-transform: rotate3d(0,0,1,216deg);
+                transform: rotate3d(0,0,1,216deg);
+            }
+            65% {
+                -webkit-transform: rotate3d(0,0,1,234deg);
+                transform: rotate3d(0,0,1,234deg);
+            }
+            70% {
+                -webkit-transform: rotate3d(0,0,1,252deg);
+                transform: rotate3d(0,0,1,252deg);
+            }
+            75% {
+                -webkit-transform: rotate3d(0,0,1,270deg);
+                transform: rotate3d(0,0,1,270deg);
+            }
+            80% {
+                -webkit-transform: rotate3d(0,0,1,288deg);
+                transform: rotate3d(0,0,1,288deg);
+            }
+            85% {
+                -webkit-transform: rotate3d(0,0,1,306deg);
+                transform: rotate3d(0,0,1,306deg);
+            }
+            90% {
+                -webkit-transform: rotate3d(0,0,1,324deg);
+                transform: rotate3d(0,0,1,324deg);
+            }
+            95% {
+                -webkit-transform: rotate3d(0,0,1,342deg);
+                transform: rotate3d(0,0,1,342deg);
+            }
+            100% {
+                -webkit-transform: rotate3d(0,0,1,360deg);
+                transform: rotate3d(0,0,1,360deg);
+            }
+
+
+        }
+
+        @keyframes swings {
+            5%{
+                -webkit-transform: rotate3d(0,0,1,18deg);
+                transform: rotate3d(0,0,1,18deg);
+            }
+            10%{
+                -webkit-transform: rotate3d(0,0,1,36deg);
+                transform: rotate3d(0,0,1,36deg);
+            }
+            15%{
+                -webkit-transform: rotate3d(0,0,1,54deg);
+                transform: rotate3d(0,0,1,54deg);
+            }
+            20% {
+                -webkit-transform: rotate3d(0,0,1,72deg);
+                transform: rotate3d(0,0,1,72deg);
+            }
+            25% {
+                -webkit-transform: rotate3d(0,0,1,90deg);
+                transform: rotate3d(0,0,1,90deg);
+            }
+            30% {
+                -webkit-transform: rotate3d(0,0,1,108deg);
+                transform: rotate3d(0,0,1,108deg);
+            }
+            35% {
+                -webkit-transform: rotate3d(0,0,1,126deg);
+                transform: rotate3d(0,0,1,126deg);
+            }
+            40% {
+                -webkit-transform: rotate3d(0,0,1,144deg);
+                transform: rotate3d(0,0,1,144deg);
+            }
+            45% {
+                -webkit-transform: rotate3d(0,0,1,162deg);
+                transform: rotate3d(0,0,1,162deg);
+            }
+            50% {
+                -webkit-transform: rotate3d(0,0,1,180deg);
+                transform: rotate3d(0,0,1,180deg);
+            }
+            55% {
+                -webkit-transform: rotate3d(0,0,1,198deg);
+                transform: rotate3d(0,0,1,198deg);
+            }
+            60% {
+                -webkit-transform: rotate3d(0,0,1,216deg);
+                transform: rotate3d(0,0,1,216deg);
+            }
+            65% {
+                -webkit-transform: rotate3d(0,0,1,234deg);
+                transform: rotate3d(0,0,1,234deg);
+            }
+            70% {
+                -webkit-transform: rotate3d(0,0,1,252deg);
+                transform: rotate3d(0,0,1,252deg);
+            }
+            75% {
+                -webkit-transform: rotate3d(0,0,1,270deg);
+                transform: rotate3d(0,0,1,270deg);
+            }
+            80% {
+                -webkit-transform: rotate3d(0,0,1,288deg);
+                transform: rotate3d(0,0,1,288deg);
+            }
+            85% {
+                -webkit-transform: rotate3d(0,0,1,306deg);
+                transform: rotate3d(0,0,1,306deg);
+            }
+            90% {
+                -webkit-transform: rotate3d(0,0,1,324deg);
+                transform: rotate3d(0,0,1,324deg);
+            }
+            95% {
+                -webkit-transform: rotate3d(0,0,1,342deg);
+                transform: rotate3d(0,0,1,342deg);
+            }
+            100% {
+                -webkit-transform: rotate3d(0,0,1,360deg);
+                transform: rotate3d(0,0,1,360deg);
+            }
+
+        }
+
+        .swings{
+            -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count:1;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+            -webkit-animation-name:swings;
+            animation-name:swings;
+        }
+
+        @-webkit-keyframes swinging15{
+            0%{-webkit-transform: rotate(15deg);}
+            50%{-webkit-transform: rotate(-15deg)}
+            100%{-webkit-transform: rotate(15deg);}
+        }
+
+        @keyframes swinging15{
+            0%{transform: rotate(15deg);}
+            50%{transform: rotate(-15deg)}
+            100%{transform: rotate(15deg);}
+        }
+
+        .ef_swings15{
+            -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+            -webkit-animation: swinging15 2.5s ease-in-out forwards infinite;
+            animation: swinging15 2.5s ease-in-out forwards infinite;
+        }
+
+        @-webkit-keyframes swinging25{
+            0%{-webkit-transform: rotate(25deg);}
+            50%{-webkit-transform: rotate(-25deg)}
+            100%{-webkit-transform: rotate(25deg);}
+        }
+
+        @keyframes swinging{
+            0%{transform: rotate(25deg);}
+            50%{transform: rotate(-25deg)}
+            100%{transform: rotate(25deg);}
+        }
+
+        .ef_swings25{
+            -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+            -webkit-animation: swinging25 2.8s ease-in-out forwards infinite;
+            animation: swinging25 2.8s ease-in-out forwards infinite;
+        }
+
+        @-webkit-keyframes swinging5{
+            0%{-webkit-transform: rotate(5deg);}
+            50%{-webkit-transform: rotate(-30deg)}
+            100%{-webkit-transform: rotate(5deg);}
+        }
+
+        @keyframes swinging5{
+            0%{transform: rotate(5deg);}
+            50%{transform: rotate(-30deg)}
+            100%{transform: rotate(5deg);}
+        }
+        #head{
+            font-size:50px;
+            text-align: center;
+            border-bottom:10px;
+            padding-top:350px;
+        }
+        #text{
+            font-size:25px;
+            text-align: center;
+            border-bottom:10px;
+            margin:20px;
+            padding-top:30px;
+        }
+        .leaf{
+            position: fixed;
+            z-index: -1;
+        }
+        #input{
+            display:block;
+
+        }
+        #buttonStart{
+            background-color: transparent;
+            border: none;
+            width: 115px;
+            height: 42px;
+            cursor: pointer;
+            z-index: 2;
+            position: relative;
+            left: 57px;
+        }
+        #bg_starts{
+            width: 115px;
+            height: 42px;
+            position: relative;
+            left: -60px;
+            cursor: pointer;
+        }
+        .logos{
+            margin-top: 290px;
+            text-align: center;
+        }
+        .logos img{
+            width: 60%;
+        }
+
+        #eth_wallet{
+            background: transparent;
+            color: white;
+            width: 335px;
+            height: 45px;
+            font-family: SpoqaHanSans;
+            font-size: 24px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.88;
+            letter-spacing: normal;
+            text-align: left;
+            padding:0;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'thirdparty/semantic/semantic.css' %}">
+
+</head>
+<body style="background-color: black;height: auto;overflow: hidden;">
+<div class="bgImg" style="position:absolute; width: 100%;">
+    <img src="{% static 'login/main-img-left-top-full.png' %}" alt="" style="z-index:-1;position: absolute;left: -80px;top: -480px;">
+    <img src="{% static 'login/main-img-left-bottom-full.png' %}" alt="" style="z-index:-1;position: absolute;bottom: -890px;left: 50px;">
+
+    <img src="{% static 'login/main-img-right-full.png' %}" alt="" style="z-index:-1;position: absolute;right: -260px;top:-110px;">
+    <img src="{% static 'login/main-img-right-bottom-full.png' %}" alt="" style="z-index:-1;position: absolute;right:110px;top:520px;">
+</div>
+
+<div>
+    <div class="interactive">
+        <div class="" style="z-index: -2">
+            <div class="leaf-set" data-animate="fadeIn" data-delay="300" style="min-width: 100%;min-height: 900px;position: absolute;">
+
+                <div class="leaf ef_swings25" id="leaf-1" data-index="1" style="left:535px;top:491px;">
+                    <img src="{% static 'asset/img-alc-1.png' %}" data-index="1">
+                </div>
+
+                <div data-index="2" id="leaf-2" class="leaf ef_swings5" style="left:589px;top:365px;">
+                    <img src="{% static 'asset/img-alc-2.png' %}" data-index="2" >
+                </div>
+
+                <div data-index="3" id="leaf-3" class="leaf ef_swings15" style="left:458px;top:555px;">
+                    <img src="{% static 'asset/img-alc-3.png' %}" data-index="3" >
+                </div>
+                <div data-index="4" id="leaf-4" class="leaf ef_swings5" style="left:295px;top:912px;-webkit-transform: rotate(15deg);transform: rotate(15deg);">
+                    <img src="{% static 'asset/img-alc-4.png' %}" data-index="4"  >
+                </div>
+                <div data-index="5" id="leaf-5" class="leaf ef_swings25" style="left:385px;top:444px;-webkit-transform: rotate(5deg);transform: rotate(5deg);">
+                    <img src="{% static 'asset/img-drk-1.png' %}" data-index="5" >
+                </div>
+
+                <div data-index="6" id="leaf-6" class="leaf ef_swings15" style="left:199px;top:448px;">
+                    <img src="{% static 'asset/img-drk-2.png' %}" data-index="6"  >
+                </div>
+
+                <div data-index="7" id="leaf-7" class="leaf ef_swings25" style="left:249px;top:345px;-webkit-transform: rotate(-35deg);transform: rotate(-35deg);">
+                    <img src="{% static 'asset/img-drk-3.png' %}" data-index="7" >
+                </div>
+                <div data-index="8" id="leaf-8" class="leaf ef_swings15" style="left:478px;top:789px;">
+                    <img src="{% static 'asset/img-drk-4.png' %}" data-index="8" >
+                </div>
+                <div data-index="9" id="leaf-9" class="leaf ef_swings5" style="left:324px;top:666px;">
+                    <img src="{% static 'asset/img-ice-1.png' %}" data-index="9">
+                </div>
+                <div data-index="10" id="leaf-10" class="leaf ef_swings15" style="left:420px;top:332px;">
+                    <img src="{% static 'asset/img-ice-2.png' %}" data-index="10">
+                </div>
+
+                <div data-index="11" id="leaf-11" class="leaf ef_swings25" style="left:333px;top:262px;">
+                    <img src="{% static 'asset/img-ice-3.png' %}" data-index="11">
+                </div>
+
+                <div data-index="12" id="leaf-12" class="leaf ef_swings15" style="left:262px;top:332px;">
+                    <img src="{% static 'asset/img-ice-3.png' %}" data-index="12">
+                </div>
+
+                <div data-index="13" id="leaf-13" class="leaf ef_swings25" style="left:713px;top:723px;">
+                    <img src="{% static 'asset/img-ice-4.png' %}" data-index="13">
+                </div>
+
+                <div data-index="14" id="leaf-14" class="leaf ef_swings25" style="left:827px;top:462px;">
+                    <img src="{% static 'ro_asset/absolute-vodka-rotate.png' %}" data-index="14">
+                </div>
+
+                <div data-index="15" id="leaf-15" class="leaf ef_swings25" style="left:520px;top:444px;">
+                    <img src="{% static 'ro_asset/hp-potion-rotate.png' %}" data-index="15">
+                </div>
+
+                <div data-index="16" id="leaf-16" class="leaf ef_swings25" style="left:360px;top:360px;">
+                    <img src="{% static 'ro_asset/img-alc-3-rotate.png' %}" data-index="16">
+                </div>
+
+                <div data-index="17" id="leaf-17" class="leaf ef_swings25" style="left:111px;top:194px;">
+                    <img src="{% static 'ro_asset/img-alc-4-rotate.png' %}" data-index="17">
+                </div>
+
+                <div data-index="18" id="leaf-18" class="leaf ef_swings25" style="left:328px;top:569px;">
+                    <img src="{% static 'ro_asset/img-drk-2-rotate.png' %}" data-index="18">
+                </div>
+
+                <div data-index="19" id="leaf-19" class="leaf ef_swings25" style="left:431px;top:309px;">
+                    <img src="{% static 'ro_asset/img-ice-1-rotate.png' %}" data-index="19">
+                </div>
+
+                <div data-index="20" id="leaf-20" class="leaf ef_swings25" style="left:925px;top:562px;">
+                    <img src="{% static 'ro_asset/img-ice-2-rotate.png' %}" data-index="20">
+                </div>
+
+                <div data-index="21" id="leaf-21" class="leaf ef_swings25" style="left:425px;top:162px;">
+                    <img src="{% static 'ro_asset/img-ice-4-rotate.png' %}" data-index="21">
+                </div>
+
+                <div data-index="22" id="leaf-22" class="leaf ef_swings25" style="left:595px;top:599px;">
+                    <img src="{% static 'ro_asset/img-ice-5-rotate.png' %}" data-index="21">
+                </div>
+
+                <div data-index="23" id="leaf-23" class="leaf ef_swings25" style="left:925px;top:162px;">
+                    <img src="{% static 'ro_asset/img-ice-6-rotate.png' %}" data-index="21">
+                </div>
+
+                <div data-index="24" id="leaf-24" class="leaf ef_swings25" style="left:833px;top:123px;">
+                    <img src="{% static 'ro_asset/img-ice-11-rotate.png' %}" data-index="24">
+                </div>
+
+                <div data-index="25" id="leaf-25" class="leaf ef_swings25" style="left:1234px;top:123px;">
+                    <img src="{% static 'ro_asset/img-sld-1-rotate.png' %}" data-index="25">
+                </div>
+
+                <div data-index="26" id="leaf-26" class="leaf ef_swings25" style="left:1020px;top:368px;">
+                    <img src="{% static 'ro_asset/img-sld-4-rotate.png' %}" data-index="26">
+                </div>
+
+                <div data-index="27" id="leaf-27" class="leaf ef_swings25" style="left:895px;top:285px;">
+                    <img src="{% static 'ro_asset/lemon-cello-rotate.png' %}" data-index="27">
+                </div>
+
+                <div data-index="28" id="leaf-28" class="leaf ef_swings25" style="left:995px;top:482px;">
+                    <img src="{% static 'ro_asset/love-myoyag-rotate.png' %}" data-index="28">
+                </div>
+
+                <div data-index="29" id="leaf-29" class="leaf ef_swings25" style="left:888px;top:362px;">
+                    <img src="{% static 'ro_asset/molggayo-rotate.png' %}" data-index="29">
+                </div>
+
+                <div data-index="30" id="leaf-30" class="leaf ef_swings25" style="left:525px;top:462px;">
+                    <img src="{% static 'ro_asset/mp-potion-rotate.png' %}" data-index="30">
+                </div>
+
+                <div data-index="31" id="leaf-31" class="leaf ef_swings25" style="left:495px;top:369px;">
+                    <img src="{% static 'ro_asset/saewoo-tigwim-rotate.png' %}" data-index="31">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="logos">
+        <img src="{% static 'main/logo3x.png' %}" alt="">
+    </div>
+</div>
+
+<center>
+    <form class="ui form" id="input" action="{% url 'signin' %}" method="post">
+        {% csrf_token %}
+        <div class="field" style="margin-top: 82px;">
+            <input type="text" id="eth_wallet" name="eth_wallet"  placeholder="나의 ETH 지갑 주소를 적어주세요">
+        </div>
+        <div style="">
+            <img src="{% static 'main/line3x.png' %}" alt="" style="width: 392px;">
+        </div>
+
+        <div style="margin-top: 35px;">
+            <div style="display: block;">
+                <input class="" type="submit" name="submit" onclick="onButtonClicked()" id="buttonStart" value="" >
+                <img src="{% static 'main/start3x.png' %}" id="bg_starts" alt="">
+            </div>
+        </div>
+    </form>
+
+</center>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script type="application/javascript">
+    web3.version.getNetwork((err, netId) => {
+        switch (netId) {
+            case "3":
+                console.log('This is the ropsten test network.');
+                break;
+
+            default:
+                console.log('This is an unknown network.');
+                alert("Change the ropsten test network.");
+        }
+    });
+
+    window.addEventListener('load', function() {
+
+        // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            {#alert("Ethereum Ropsten Testnet 에서만 가능합니다!");#}
+
+            var myWeb3 = new Web3(window.web3.currentProvider);
+            myWeb3.eth.defaultAccount = window.web3.eth.defaultAccount;
+            var add = myWeb3.eth.defaultAccount;
+            {#$('#metamask_add').html(add);#}
+            $('#eth_wallet').val(add);
+
+        } else {
+            alert('MetaMask가 없는 브라우저에서는 보기만 가능합니다.');
+            $('#metamask_add').html('Oops! Your browser does not support Ethereum Ðapps.');
+        }
+
+        // Now you can start your app & access web3 freely:
+        {#startApp()#}
+
+    })
+</script>
+
+<script>
+    function onButtonClicked(self){            //버튼 클릭시 로딩 진행 버튼으로 바꾸고 싶음
+        self.class = "massive ui loading button";
+    }
+</script>
+<script>
+    $(document).ready(function(){
+        animateDiv($('#leaf-1'));
+        animateDiv($('#leaf-2'));
+        animateDiv($('#leaf-3'));
+        animateDiv($('#leaf-4'));
+        animateDiv($('#leaf-5'));
+        animateDiv($('#leaf-6'));
+        animateDiv($('#leaf-7'));
+        animateDiv($('#leaf-8'));
+        animateDiv($('#leaf-9'));
+        animateDiv($('#leaf-10'));
+        animateDiv($('#leaf-11'));
+        animateDiv($('#leaf-12'));
+        animateDiv($('#leaf-13'));
+        animateDiv($('#leaf-14'));
+        animateDiv($('#leaf-15'));
+        animateDiv($('#leaf-16'));
+        animateDiv($('#leaf-17'));
+        animateDiv($('#leaf-18'));
+        animateDiv($('#leaf-19'));
+        animateDiv($('#leaf-20'));
+        animateDiv($('#leaf-21'));
+        animateDiv($('#leaf-22'));
+        animateDiv($('#leaf-23'));
+        animateDiv($('#leaf-24'));
+        animateDiv($('#leaf-25'));
+        animateDiv($('#leaf-26'));
+        animateDiv($('#leaf-27'));
+        animateDiv($('#leaf-28'));
+        animateDiv($('#leaf-29'));
+        animateDiv($('#leaf-30'));
+        animateDiv($('#leaf-31'));
+
+    });
+
+
+
+    function makeNewPosition($container) {
+
+        var h = $container.height() + 50;
+        var w = $container.width() - 50;
+
+        var nh = Math.floor(Math.random() * h);
+        var nw = Math.floor(Math.random() * w);
+
+        return [nh, nw];
+    };
+
+    function randomIntFromInterval(min,max) {
+
+        return Math.random()*(max-min)+min;
+    };
+
+    function animateDiv($target) {
+
+        var newq = makeNewPosition($target.parent());
+        var oldq = $target.offset();
+        var speed = calcSpeed([oldq.top, oldq.left], newq);
+        var t_scale = String(randomIntFromInterval(0.5,1.5));
+        {#$target.children('img').css('transform','scale('+t_scale+')');#}
+
+        $target.animate({
+            top: newq[0],
+            left: newq[1]
+        }, speed, function() {
+            animateDiv($target);
+        });
+
+    };
+
+    function calcSpeed(prev, next) {
+
+        var x = Math.abs(prev[1] - next[1]);
+        var y = Math.abs(prev[0] - next[0]);
+
+        var greatest = x > y ? x : y;
+
+        var speedModifier = 0.1;
+
+        var speed = Math.ceil(greatest / speedModifier);
+
+        return speed;
+
+    };
+</script>
+</body>
+</html>
