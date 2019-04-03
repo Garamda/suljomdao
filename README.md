@@ -2,17 +2,16 @@
 
 ![SULJOMDAO](https://github.com/CodeMath/suljomdao/blob/master/readme/intro.gif?raw=true)
 
-This project is based ethereum game. (Solidity refer is CryptoKitty gmae.)
+This project is based on ethereum game, which refers to CryptoKitties.
 
 ![SULJOMDAO](https://github.com/CodeMath/suljomdao/blob/master/readme/market.gif?raw=true)
 
-ERC721 style game. Buy and make a Cocktail manufacturing.
+ERC721 style game. You can buy and make cocktail digiter cards.
 
-- Purchase ingredients and make a unique combination of cocktails.
-- Unique ERC721 ingredients.
+- You can purchase ingredients and make a unique combination of cocktails.
+- Based on ERC721 which is used to buy ingredients and cocktails.
 - Client is Django and web3.js
-- Smart contract is finish maybe 80%. (Now On testing)
-- DO NOT RUN MAINNET! (Only Ropsten testnet)
+- DO NOT RUN MAINNET! (You can only run Ropsten testnet where you can safely test without the danger of losing real cryptocurrency)
 
 
 ![SULJOMDAO](https://github.com/CodeMath/suljomdao/blob/master/readme/make.gif?raw=true)
@@ -28,16 +27,12 @@ web3.js
 # Sorry, Not perfect yet.
 
 Please DO NOT RUN MAINNET!
-
 It is not perfect yet.
-
 This project only runs at Ropsten testnet and Django.
-
-I'll be update soon. :-)
 
 # Maker
 > Design: 전다연, 고솔아
-> Front: 최가람 (supporter 이동혁)
-> Smart Contract: 이동혁,
+> Front: 최가람
+> Smart Contract: 이동혁
 
-MIT License. Donate at ETH: 0xAB3e2F45701474fE7B7506C6A4E64Db491AF7437
+MIT License.
